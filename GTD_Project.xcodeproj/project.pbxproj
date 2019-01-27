@@ -7,23 +7,53 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA2FB8B721D0E703005309DB /* taskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2FB8B621D0E703005309DB /* taskList.swift */; };
+		FA2FB8BB21D0E778005309DB /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2FB8BA21D0E778005309DB /* Project.swift */; };
+		FA2FB8BD21D0EEE7005309DB /* EnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2FB8BC21D0EEE7005309DB /* EnterViewController.swift */; };
+		FA2FB8C021D0F214005309DB /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2FB8BE21D0F214005309DB /* Task+CoreDataClass.swift */; };
+		FA2FB8C121D0F214005309DB /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2FB8BF21D0F214005309DB /* Task+CoreDataProperties.swift */; };
+		FA2FB8C321D10071005309DB /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2FB8C221D10071005309DB /* Defaults.swift */; };
+		FA2FB8C521D104A3005309DB /* HandleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2FB8C421D104A3005309DB /* HandleViewController.swift */; };
+		FA521CCB21E218E2004A1779 /* EnterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA521CCA21E218E2004A1779 /* EnterList.swift */; };
+		FA521CCD21E37F50004A1779 /* WaitingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA521CCC21E37F50004A1779 /* WaitingView.xib */; };
+		FA68104D21D77A9B0070FCFA /* TaskCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA68104C21D77A9B0070FCFA /* TaskCategory.swift */; };
+		FA68106F21D8C3BE0070FCFA /* DropDownTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA68106E21D8C3BE0070FCFA /* DropDownTable.swift */; };
+		FA68107121DE29AF0070FCFA /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA68107021DE29AF0070FCFA /* ResultView.swift */; };
+		FA68107321DE41EA0070FCFA /* ResultView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA87768F21D4E51000A956C5 /* ResultView.xib */; };
+		FA87768E21D4E1B300A956C5 /* Executor.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA87768D21D4E1B300A956C5 /* Executor.xib */; };
 		FA8D83E8217C82BD008C100A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8D83E7217C82BD008C100A /* AppDelegate.swift */; };
-		FA8D83EA217C82BD008C100A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8D83E9217C82BD008C100A /* ViewController.swift */; };
 		FA8D83ED217C82BD008C100A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA8D83EB217C82BD008C100A /* Main.storyboard */; };
 		FA8D83F0217C82BD008C100A /* GTD_Project.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA8D83EE217C82BD008C100A /* GTD_Project.xcdatamodeld */; };
 		FA8D83F2217C82C1008C100A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA8D83F1217C82C1008C100A /* Assets.xcassets */; };
 		FA8D83F5217C82C1008C100A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA8D83F3217C82C1008C100A /* LaunchScreen.storyboard */; };
+		FA8D84202185DB72008C100A /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8D841F2185DB72008C100A /* Task.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA2FB8B621D0E703005309DB /* taskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = taskList.swift; sourceTree = "<group>"; };
+		FA2FB8BA21D0E778005309DB /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		FA2FB8BC21D0EEE7005309DB /* EnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterViewController.swift; sourceTree = "<group>"; };
+		FA2FB8BE21D0F214005309DB /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FA2FB8BF21D0F214005309DB /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FA2FB8C221D10071005309DB /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		FA2FB8C421D104A3005309DB /* HandleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleViewController.swift; sourceTree = "<group>"; };
+		FA521CCA21E218E2004A1779 /* EnterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterList.swift; sourceTree = "<group>"; };
+		FA521CCC21E37F50004A1779 /* WaitingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WaitingView.xib; sourceTree = "<group>"; };
+		FA68104C21D77A9B0070FCFA /* TaskCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCategory.swift; sourceTree = "<group>"; };
+		FA68106E21D8C3BE0070FCFA /* DropDownTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownTable.swift; sourceTree = "<group>"; };
+		FA68107021DE29AF0070FCFA /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		FA87768D21D4E1B300A956C5 /* Executor.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Executor.xib; sourceTree = "<group>"; };
+		FA87768F21D4E51000A956C5 /* ResultView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultView.xib; sourceTree = "<group>"; };
+		FA87769021D4E56900A956C5 /* Period.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Period.xib; sourceTree = "<group>"; };
+		FA87769121D4E58800A956C5 /* FirstAction.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstAction.xib; sourceTree = "<group>"; };
 		FA8D83E4217C82BD008C100A /* GTD_Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GTD_Project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA8D83E7217C82BD008C100A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FA8D83E9217C82BD008C100A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FA8D83EC217C82BD008C100A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA8D83EF217C82BD008C100A /* GTD_Project.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GTD_Project.xcdatamodel; sourceTree = "<group>"; };
 		FA8D83F1217C82C1008C100A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA8D83F4217C82C1008C100A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA8D83F6217C82C1008C100A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA8D841F2185DB72008C100A /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +67,150 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA2FB8B321D0E696005309DB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FA2FB8BE21D0F214005309DB /* Task+CoreDataClass.swift */,
+				FA2FB8BF21D0F214005309DB /* Task+CoreDataProperties.swift */,
+				FA2FB8B621D0E703005309DB /* taskList.swift */,
+				FA8D841F2185DB72008C100A /* Task.swift */,
+				FA68104C21D77A9B0070FCFA /* TaskCategory.swift */,
+				FA2FB8BA21D0E778005309DB /* Project.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FA2FB8B821D0E741005309DB /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FA2FB8B921D0E747005309DB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FA521CC621E21810004A1779 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FA521CC721E21819004A1779 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA8D83EB217C82BD008C100A /* Main.storyboard */,
+				FA8D83F3217C82C1008C100A /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FA521CC821E2181F004A1779 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FA8D83E7217C82BD008C100A /* AppDelegate.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FA521CC921E21849004A1779 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				FA2FB8B321D0E696005309DB /* Model */,
+				FA2FB8B821D0E741005309DB /* View */,
+				FA2FB8B921D0E747005309DB /* Controller */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		FA68104721D774170070FCFA /* EnterTasks */ = {
+			isa = PBXGroup;
+			children = (
+				FA68104821D774370070FCFA /* Model */,
+				FA68104921D7743E0070FCFA /* View */,
+				FA68104A21D774450070FCFA /* Controller */,
+			);
+			path = EnterTasks;
+			sourceTree = "<group>";
+		};
+		FA68104821D774370070FCFA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FA2FB8C221D10071005309DB /* Defaults.swift */,
+				FA521CCA21E218E2004A1779 /* EnterList.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FA68104921D7743E0070FCFA /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FA68104A21D774450070FCFA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FA2FB8BC21D0EEE7005309DB /* EnterViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FA68104B21D774700070FCFA /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				FA521CC821E2181F004A1779 /* Controller */,
+				FA521CC721E21819004A1779 /* View */,
+				FA521CC621E21810004A1779 /* Model */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		FA68107221DE2DCD0070FCFA /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				FA87768F21D4E51000A956C5 /* ResultView.xib */,
+				FA521CCC21E37F50004A1779 /* WaitingView.xib */,
+				FA68107021DE29AF0070FCFA /* ResultView.swift */,
+			);
+			path = Result;
+			sourceTree = "<group>";
+		};
+		FA68107421DE46920070FCFA /* Handle */ = {
+			isa = PBXGroup;
+			children = (
+				FA68107621DE47080070FCFA /* View */,
+				FA68107521DE46F10070FCFA /* Model */,
+				FA2FB8C421D104A3005309DB /* HandleViewController.swift */,
+			);
+			path = Handle;
+			sourceTree = "<group>";
+		};
+		FA68107521DE46F10070FCFA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FA68107621DE47080070FCFA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA68106E21D8C3BE0070FCFA /* DropDownTable.swift */,
+				FA68107221DE2DCD0070FCFA /* Result */,
+				FA87768D21D4E1B300A956C5 /* Executor.xib */,
+				FA87769121D4E58800A956C5 /* FirstAction.xib */,
+				FA87769021D4E56900A956C5 /* Period.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		FA8D83DB217C82BD008C100A = {
 			isa = PBXGroup;
 			children = (
@@ -56,11 +230,11 @@
 		FA8D83E6217C82BD008C100A /* GTD_Project */ = {
 			isa = PBXGroup;
 			children = (
-				FA8D83E7217C82BD008C100A /* AppDelegate.swift */,
-				FA8D83E9217C82BD008C100A /* ViewController.swift */,
-				FA8D83EB217C82BD008C100A /* Main.storyboard */,
+				FA521CC921E21849004A1779 /* Other */,
+				FA68107421DE46920070FCFA /* Handle */,
+				FA68104B21D774700070FCFA /* Application */,
+				FA68104721D774170070FCFA /* EnterTasks */,
 				FA8D83F1217C82C1008C100A /* Assets.xcassets */,
-				FA8D83F3217C82C1008C100A /* LaunchScreen.storyboard */,
 				FA8D83F6217C82C1008C100A /* Info.plist */,
 				FA8D83EE217C82BD008C100A /* GTD_Project.xcdatamodeld */,
 			);
@@ -125,6 +299,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA68107321DE41EA0070FCFA /* ResultView.xib in Resources */,
+				FA87768E21D4E1B300A956C5 /* Executor.xib in Resources */,
+				FA521CCD21E37F50004A1779 /* WaitingView.xib in Resources */,
 				FA8D83F5217C82C1008C100A /* LaunchScreen.storyboard in Resources */,
 				FA8D83F2217C82C1008C100A /* Assets.xcassets in Resources */,
 				FA8D83ED217C82BD008C100A /* Main.storyboard in Resources */,
@@ -138,9 +315,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA8D83EA217C82BD008C100A /* ViewController.swift in Sources */,
+				FA521CCB21E218E2004A1779 /* EnterList.swift in Sources */,
+				FA2FB8C521D104A3005309DB /* HandleViewController.swift in Sources */,
+				FA2FB8C321D10071005309DB /* Defaults.swift in Sources */,
+				FA68104D21D77A9B0070FCFA /* TaskCategory.swift in Sources */,
+				FA2FB8B721D0E703005309DB /* taskList.swift in Sources */,
+				FA68106F21D8C3BE0070FCFA /* DropDownTable.swift in Sources */,
+				FA68107121DE29AF0070FCFA /* ResultView.swift in Sources */,
 				FA8D83E8217C82BD008C100A /* AppDelegate.swift in Sources */,
+				FA2FB8C021D0F214005309DB /* Task+CoreDataClass.swift in Sources */,
 				FA8D83F0217C82BD008C100A /* GTD_Project.xcdatamodeld in Sources */,
+				FA2FB8BB21D0E778005309DB /* Project.swift in Sources */,
+				FA8D84202185DB72008C100A /* Task.swift in Sources */,
+				FA2FB8C121D0F214005309DB /* Task+CoreDataProperties.swift in Sources */,
+				FA2FB8BD21D0EEE7005309DB /* EnterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
