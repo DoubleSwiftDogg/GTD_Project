@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA2473092206D59E00CD214C /* WaitingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2473082206D59E00CD214C /* WaitingView.swift */; };
 		FA2FB8B721D0E703005309DB /* taskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2FB8B621D0E703005309DB /* taskList.swift */; };
 		FA2FB8BB21D0E778005309DB /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2FB8BA21D0E778005309DB /* Project.swift */; };
 		FA2FB8BD21D0EEE7005309DB /* EnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2FB8BC21D0EEE7005309DB /* EnterViewController.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA2473082206D59E00CD214C /* WaitingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingView.swift; sourceTree = "<group>"; };
 		FA2FB8B621D0E703005309DB /* taskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = taskList.swift; sourceTree = "<group>"; };
 		FA2FB8BA21D0E778005309DB /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		FA2FB8BC21D0EEE7005309DB /* EnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterViewController.swift; sourceTree = "<group>"; };
@@ -172,14 +174,13 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		FA68107221DE2DCD0070FCFA /* Result */ = {
+		FA68107221DE2DCD0070FCFA /* Result (suspended) */ = {
 			isa = PBXGroup;
 			children = (
 				FA87768F21D4E51000A956C5 /* ResultView.xib */,
-				FA521CCC21E37F50004A1779 /* WaitingView.xib */,
 				FA68107021DE29AF0070FCFA /* ResultView.swift */,
 			);
-			path = Result;
+			path = "Result (suspended)";
 			sourceTree = "<group>";
 		};
 		FA68107421DE46920070FCFA /* Handle */ = {
@@ -202,8 +203,10 @@
 		FA68107621DE47080070FCFA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FA521CCC21E37F50004A1779 /* WaitingView.xib */,
+				FA2473082206D59E00CD214C /* WaitingView.swift */,
 				FA68106E21D8C3BE0070FCFA /* DropDownTable.swift */,
-				FA68107221DE2DCD0070FCFA /* Result */,
+				FA68107221DE2DCD0070FCFA /* Result (suspended) */,
 				FA87768D21D4E1B300A956C5 /* Executor.xib */,
 				FA87769121D4E58800A956C5 /* FirstAction.xib */,
 				FA87769021D4E56900A956C5 /* Period.xib */,
@@ -326,6 +329,7 @@
 				FA2FB8C021D0F214005309DB /* Task+CoreDataClass.swift in Sources */,
 				FA8D83F0217C82BD008C100A /* GTD_Project.xcdatamodeld in Sources */,
 				FA2FB8BB21D0E778005309DB /* Project.swift in Sources */,
+				FA2473092206D59E00CD214C /* WaitingView.swift in Sources */,
 				FA8D84202185DB72008C100A /* Task.swift in Sources */,
 				FA2FB8C121D0F214005309DB /* Task+CoreDataProperties.swift in Sources */,
 				FA2FB8BD21D0EEE7005309DB /* EnterViewController.swift in Sources */,

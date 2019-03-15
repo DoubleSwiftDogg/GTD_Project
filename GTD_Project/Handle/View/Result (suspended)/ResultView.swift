@@ -11,7 +11,7 @@ import UIKit
 class ResultView: UIView {
     
     //@IBOutlet var result: UIView!
-    //@IBOutlet var resultTextField: UITextField!
+    @IBOutlet var resultTextField: UITextField!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,9 +25,6 @@ class ResultView: UIView {
     
     func commonInit() {
         let resultView = Bundle.main.loadNibNamed("ResultView", owner: self, options: nil)?.first
-        //let bundle = Bundle(for: type(of: self))
-        //let nib = UINib(nibName: "ResultView", bundle: bundle)
-//        let resultView = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         
 //        resultView.translatesAutoresizingMaskIntoConstraints = false
 //        resultView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true

@@ -11,9 +11,8 @@ import UIKit
 class HandleViewController: UIViewController {
     
     var dropView = DropDownTable()
-    var result = ResultView() // result
+    var waitingView = WaitingView()
     var height = NSLayoutConstraint()
-    var heightResult = NSLayoutConstraint() //heightResult
     var isOpen = false
     var entryTitle = ""
     
@@ -38,17 +37,14 @@ class HandleViewController: UIViewController {
         height = dropView.heightAnchor.constraint(equalToConstant: 0)
         //---------------------------------//
         
-        
-        result = ResultView(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
-        //result = Bundle.main.loadNibNamed("ResultView", owner: self, options: nil)!.first as! ResultView
-        result.translatesAutoresizingMaskIntoConstraints = false
-        result.isHidden = true
-        self.view.addSubview(result)
-
-        result.topAnchor.constraint(equalTo: catButton.bottomAnchor, constant: 17).isActive = true
-        result.centerXAnchor.constraint(equalTo: catButton.centerXAnchor).isActive = true
-        result.widthAnchor.constraint(equalTo: catButton.widthAnchor).isActive = true
-        heightResult = result.heightAnchor.constraint(equalToConstant: 0)
+//        waitingView = WaitingView(frame: CGRect.init(x: 0, y: 0, width: 343, height: 255))
+//        waitingView.translatesAutoresizingMaskIntoConstraints = false
+//        self.view.addSubview(waitingView)
+//        waitingView.topAnchor.constraint(equalTo: catButton.bottomAnchor).isActive = true
+//        waitingView.centerXAnchor.constraint(equalTo: catButton.centerXAnchor).isActive = true
+//        waitingView.widthAnchor.constraint(equalTo: catButton.widthAnchor).isActive = true
+//        waitingView.heightAnchor.constraint(equalToConstant: 255)
+//        waitingView.isHidden = true
     }
     
     //функция нажатия кнопки выбора категории
@@ -96,16 +92,18 @@ extension HandleViewController: dropDownProtocol {
         //дописываем новые поля в случае выбора нужной категории
         selectedCategory = TaskCategoryListDic[string]
         if selectedCategory == .waiting {
+            
+            waitingView = WaitingView(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
+            waitingView.translatesAutoresizingMaskIntoConstraints = false
+            self.view.addSubview(waitingView)
+            waitingView.topAnchor.constraint(equalTo: catButton.bottomAnchor).isActive = true
+            waitingView.centerXAnchor.constraint(equalTo: catButton.centerXAnchor).isActive = true
+            waitingView.widthAnchor.constraint(equalTo: catButton.widthAnchor).isActive = true
 
+            self.view.bringSubviewToFront(waitingView)
             print("Success!")
-            self.view.bringSubviewToFront(result)
-            result.isHidden = false
+            //waitingView.isHidden = false
+            //self.view.bringSubviewToFront(waitingView)
         }
     }
 }
-
-//extension HandleViewController: UITextFieldDelegate {
-//    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-//        return true
-//    }
-//}
