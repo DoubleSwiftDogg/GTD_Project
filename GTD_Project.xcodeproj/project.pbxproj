@@ -69,6 +69,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA2ABDE5223D15BE00263995 /* (Suspended) */ = {
+			isa = PBXGroup;
+			children = (
+				FA87768D21D4E1B300A956C5 /* Executor.xib */,
+				FA87769121D4E58800A956C5 /* FirstAction.xib */,
+				FA87769021D4E56900A956C5 /* Period.xib */,
+				FA68107221DE2DCD0070FCFA /* Result (suspended) */,
+			);
+			path = "(Suspended)";
+			sourceTree = "<group>";
+		};
 		FA2FB8B321D0E696005309DB /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,13 +214,9 @@
 		FA68107621DE47080070FCFA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FA68106E21D8C3BE0070FCFA /* DropDownTable.swift */,
 				FA521CCC21E37F50004A1779 /* WaitingView.xib */,
 				FA2473082206D59E00CD214C /* WaitingView.swift */,
-				FA68106E21D8C3BE0070FCFA /* DropDownTable.swift */,
-				FA68107221DE2DCD0070FCFA /* Result (suspended) */,
-				FA87768D21D4E1B300A956C5 /* Executor.xib */,
-				FA87769121D4E58800A956C5 /* FirstAction.xib */,
-				FA87769021D4E56900A956C5 /* Period.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -235,8 +242,9 @@
 			children = (
 				FA521CC921E21849004A1779 /* Other */,
 				FA68107421DE46920070FCFA /* Handle */,
-				FA68104B21D774700070FCFA /* Application */,
 				FA68104721D774170070FCFA /* EnterTasks */,
+				FA68104B21D774700070FCFA /* Application */,
+				FA2ABDE5223D15BE00263995 /* (Suspended) */,
 				FA8D83F1217C82C1008C100A /* Assets.xcassets */,
 				FA8D83F6217C82C1008C100A /* Info.plist */,
 				FA8D83EE217C82BD008C100A /* GTD_Project.xcdatamodeld */,
