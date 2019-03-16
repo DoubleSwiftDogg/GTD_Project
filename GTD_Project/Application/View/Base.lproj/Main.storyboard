@@ -72,6 +72,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Входящие" id="GpW-kz-Z8T">
+                        <barButtonItem key="leftBarButtonItem" title="Ред." id="mI6-K2-Y5d">
+                            <connections>
+                                <action selector="pressEditButton" destination="BYZ-38-t0r" id="Y5v-DZ-kqX"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Списки" id="t18-6u-VbK">
                             <connections>
                                 <segue destination="fqd-eD-kZ2" kind="show" id="CkA-Sn-W8k"/>

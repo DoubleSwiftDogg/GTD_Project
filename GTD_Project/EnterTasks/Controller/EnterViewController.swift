@@ -35,11 +35,16 @@ class EnterViewController: UIViewController {
         self.present(ac, animated: true, completion: nil)
     }
     
+    @IBAction func pressEditButton() {
+        tableView.setEditing(!tableView.isEditing, animated: true)
+    }
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
         loadEnterList()
         tableView.reloadData()
+        tableView.allowsSelection = false
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -68,6 +73,7 @@ extension EnterViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = enterList[indexPath.row]
+        cell.textLabel?.textColor = .blue
         cell.textLabel?.numberOfLines = 2
         
         return cell
@@ -103,6 +109,14 @@ extension EnterViewController: UITableViewDataSource {
         handle.image = #imageLiteral(resourceName: "Обработка")
         handle.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.6196078431, blue: 0.01176470588, alpha: 1)
         return UISwipeActionsConfiguration(actions: [ready, handle])
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+        let from = enterList[fromIndexPath.row]
+        enterList.remove(at: fromIndexPath.row)
+        enterList.insert(from, at: to.row)
+        saveEnterList()
+        tableView.reloadData()
     }
     
     
