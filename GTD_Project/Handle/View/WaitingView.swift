@@ -33,7 +33,6 @@ class WaitingView: UIView {
         Bundle.main.loadNibNamed("WaitingView", owner: self, options: nil)
         addSubview(waitingView)
         waitingView.frame = self.bounds
-        //waitingView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         waitingView.translatesAutoresizingMaskIntoConstraints = false
         waitingView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
         waitingView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true

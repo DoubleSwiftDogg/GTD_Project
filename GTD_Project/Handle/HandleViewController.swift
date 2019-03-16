@@ -35,16 +35,6 @@ class HandleViewController: UIViewController {
         dropView.centerXAnchor.constraint(equalTo: catButton.centerXAnchor).isActive = true
         dropView.widthAnchor.constraint(equalTo: catButton.widthAnchor).isActive = true
         height = dropView.heightAnchor.constraint(equalToConstant: 0)
-        //---------------------------------//
-        
-//        waitingView = WaitingView(frame: CGRect.init(x: 0, y: 0, width: 343, height: 255))
-//        waitingView.translatesAutoresizingMaskIntoConstraints = false
-//        self.view.addSubview(waitingView)
-//        waitingView.topAnchor.constraint(equalTo: catButton.bottomAnchor).isActive = true
-//        waitingView.centerXAnchor.constraint(equalTo: catButton.centerXAnchor).isActive = true
-//        waitingView.widthAnchor.constraint(equalTo: catButton.widthAnchor).isActive = true
-//        waitingView.heightAnchor.constraint(equalToConstant: 255)
-//        waitingView.isHidden = true
     }
     
     //функция нажатия кнопки выбора категории
@@ -101,9 +91,6 @@ extension HandleViewController: dropDownProtocol {
             waitingView.widthAnchor.constraint(equalTo: catButton.widthAnchor).isActive = true
 
             self.view.bringSubviewToFront(waitingView)
-            print("Success!")
-            //waitingView.isHidden = false
-            //self.view.bringSubviewToFront(waitingView)
         }
     }
 }
