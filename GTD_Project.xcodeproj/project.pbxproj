@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA1463E122464CAF00FED7B0 /* WaitingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1463E022464CAE00FED7B0 /* WaitingViewCell.swift */; };
 		FA2473092206D59E00CD214C /* WaitingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2473082206D59E00CD214C /* WaitingView.swift */; };
 		FA2FB8B721D0E703005309DB /* taskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2FB8B621D0E703005309DB /* taskList.swift */; };
 		FA2FB8BB21D0E778005309DB /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2FB8BA21D0E778005309DB /* Project.swift */; };
@@ -15,6 +16,7 @@
 		FA2FB8C121D0F214005309DB /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2FB8BF21D0F214005309DB /* Task+CoreDataProperties.swift */; };
 		FA2FB8C321D10071005309DB /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2FB8C221D10071005309DB /* Defaults.swift */; };
 		FA2FB8C521D104A3005309DB /* HandleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2FB8C421D104A3005309DB /* HandleViewController.swift */; };
+		FA44C819223D3ED800D21A5C /* WaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA44C818223D3ED800D21A5C /* WaitingViewController.swift */; };
 		FA521CCB21E218E2004A1779 /* EnterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA521CCA21E218E2004A1779 /* EnterList.swift */; };
 		FA521CCD21E37F50004A1779 /* WaitingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA521CCC21E37F50004A1779 /* WaitingView.xib */; };
 		FA68104D21D77A9B0070FCFA /* TaskCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA68104C21D77A9B0070FCFA /* TaskCategory.swift */; };
@@ -31,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA1463E022464CAE00FED7B0 /* WaitingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingViewCell.swift; sourceTree = "<group>"; };
 		FA2473082206D59E00CD214C /* WaitingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingView.swift; sourceTree = "<group>"; };
 		FA2FB8B621D0E703005309DB /* taskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = taskList.swift; sourceTree = "<group>"; };
 		FA2FB8BA21D0E778005309DB /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
@@ -39,6 +42,7 @@
 		FA2FB8BF21D0F214005309DB /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FA2FB8C221D10071005309DB /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		FA2FB8C421D104A3005309DB /* HandleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleViewController.swift; sourceTree = "<group>"; };
+		FA44C818223D3ED800D21A5C /* WaitingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingViewController.swift; sourceTree = "<group>"; };
 		FA521CCA21E218E2004A1779 /* EnterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterList.swift; sourceTree = "<group>"; };
 		FA521CCC21E37F50004A1779 /* WaitingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WaitingView.xib; sourceTree = "<group>"; };
 		FA68104C21D77A9B0070FCFA /* TaskCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCategory.swift; sourceTree = "<group>"; };
@@ -78,6 +82,23 @@
 				FA68107221DE2DCD0070FCFA /* Result (suspended) */,
 			);
 			path = "(Suspended)";
+			sourceTree = "<group>";
+		};
+		FA2ABDE8223D3CD300263995 /* LISTS */ = {
+			isa = PBXGroup;
+			children = (
+				FA2ABDE9223D3CE600263995 /* WaitingList */,
+			);
+			path = LISTS;
+			sourceTree = "<group>";
+		};
+		FA2ABDE9223D3CE600263995 /* WaitingList */ = {
+			isa = PBXGroup;
+			children = (
+				FA1463E022464CAE00FED7B0 /* WaitingViewCell.swift */,
+				FA44C818223D3ED800D21A5C /* WaitingViewController.swift */,
+			);
+			path = WaitingList;
 			sourceTree = "<group>";
 		};
 		FA2FB8B321D0E696005309DB /* Model */ = {
@@ -240,6 +261,7 @@
 		FA8D83E6217C82BD008C100A /* GTD_Project */ = {
 			isa = PBXGroup;
 			children = (
+				FA2ABDE8223D3CD300263995 /* LISTS */,
 				FA521CC921E21849004A1779 /* Other */,
 				FA68107421DE46920070FCFA /* Handle */,
 				FA68104721D774170070FCFA /* EnterTasks */,
@@ -334,9 +356,11 @@
 				FA68106F21D8C3BE0070FCFA /* DropDownTable.swift in Sources */,
 				FA68107121DE29AF0070FCFA /* ResultView.swift in Sources */,
 				FA8D83E8217C82BD008C100A /* AppDelegate.swift in Sources */,
+				FA44C819223D3ED800D21A5C /* WaitingViewController.swift in Sources */,
 				FA2FB8C021D0F214005309DB /* Task+CoreDataClass.swift in Sources */,
 				FA8D83F0217C82BD008C100A /* GTD_Project.xcdatamodeld in Sources */,
 				FA2FB8BB21D0E778005309DB /* Project.swift in Sources */,
+				FA1463E122464CAF00FED7B0 /* WaitingViewCell.swift in Sources */,
 				FA2473092206D59E00CD214C /* WaitingView.swift in Sources */,
 				FA8D84202185DB72008C100A /* Task.swift in Sources */,
 				FA2FB8C121D0F214005309DB /* Task+CoreDataProperties.swift in Sources */,

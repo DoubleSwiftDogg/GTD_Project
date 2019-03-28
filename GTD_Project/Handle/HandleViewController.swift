@@ -15,6 +15,8 @@ class HandleViewController: UIViewController {
     var height = NSLayoutConstraint()
     var isOpen = false
     var entryTitle = ""
+    var categoryStringSegue: String?
+    //var selectedCategory: TaskCategory
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var catButton: UIButton!
@@ -35,6 +37,11 @@ class HandleViewController: UIViewController {
         dropView.centerXAnchor.constraint(equalTo: catButton.centerXAnchor).isActive = true
         dropView.widthAnchor.constraint(equalTo: catButton.widthAnchor).isActive = true
         height = dropView.heightAnchor.constraint(equalToConstant: 0)
+        
+        if categoryStringSegue != nil {
+            handleChosenCategory(string: categoryStringSegue!)
+            catButton.setTitle(categoryStringSegue, for: .normal)
+        }
     }
     
     //функция нажатия кнопки выбора категории
@@ -64,6 +71,63 @@ class HandleViewController: UIViewController {
             }, completion: nil)
         }
     }
+    
+    @IBAction func pressReadyButton() {
+        
+        //Сначала нужно проверить, заполнены ли нужные для категории поля
+        //Затем убедившись в этом, присвоить неким переменным значения полей
+        //И только потом инициализировать нашу задачу
+        
+        let readyData = checkForArguments(string: categoryStringSegue!)
+        let selectedCategory = TaskCategoryListDic[categoryStringSegue!]
+        
+        if readyData == true  {
+            if selectedCategory == .waiting {
+                createTask(title: titleTextField.text!, category: selectedCategory!, executor: waitingView.executorTextField.text!, result: waitingView.resultTextField.text!, dateInfo: waitingView.periodTextField.text!)
+            }
+            
+        }
+    }
+    
+    func handleChosenCategory(string: String) {
+        
+        //дописываем новые поля в случае выбора нужной категории
+        let selectedCategory = TaskCategoryListDic[string]!
+        if selectedCategory == .waiting {
+            
+            waitingView = WaitingView(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
+            waitingView.translatesAutoresizingMaskIntoConstraints = false
+            self.view.addSubview(waitingView)
+            waitingView.topAnchor.constraint(equalTo: catButton.bottomAnchor).isActive = true
+            waitingView.centerXAnchor.constraint(equalTo: catButton.centerXAnchor).isActive = true
+            waitingView.widthAnchor.constraint(equalTo: catButton.widthAnchor).isActive = true
+            
+            self.view.bringSubviewToFront(waitingView)
+        }
+    }
+    
+    func checkForArguments(string: String) -> Bool {
+        
+        let selectedCategory: TaskCategory
+        selectedCategory = TaskCategoryListDic[string]!
+        
+        switch selectedCategory {
+        case .waiting:
+            if waitingView.executorTextField.text! == "" {
+                print("Отсутствует")
+                return false
+            } else {
+                return true
+            }
+        case .suspended:
+            break
+        case .calendar:
+            break
+        case .action:
+            break
+        }
+        return false
+    }
 }
 
 extension HandleViewController: dropDownProtocol {
@@ -79,18 +143,7 @@ extension HandleViewController: dropDownProtocol {
             self.dropView.layoutIfNeeded()
         }, completion: nil)
         
-        //дописываем новые поля в случае выбора нужной категории
-        selectedCategory = TaskCategoryListDic[string]
-        if selectedCategory == .waiting {
-            
-            waitingView = WaitingView(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
-            waitingView.translatesAutoresizingMaskIntoConstraints = false
-            self.view.addSubview(waitingView)
-            waitingView.topAnchor.constraint(equalTo: catButton.bottomAnchor).isActive = true
-            waitingView.centerXAnchor.constraint(equalTo: catButton.centerXAnchor).isActive = true
-            waitingView.widthAnchor.constraint(equalTo: catButton.widthAnchor).isActive = true
-
-            self.view.bringSubviewToFront(waitingView)
-        }
+        categoryStringSegue = string
+        handleChosenCategory(string: categoryStringSegue!)
     }
 }

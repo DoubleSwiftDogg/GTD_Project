@@ -10,20 +10,20 @@
 import Foundation
 import CoreData
 
-
-extension Task {
-
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Task> {
-        return NSFetchRequest<Task>(entityName: "Task")
-    }
-
-    @NSManaged public var category: NSObject?
-    @NSManaged public var dateInfo: String?
-    @NSManaged public var executor: String?
-    @NSManaged public var project: NSObject?
-    @NSManaged public var reminder: NSDate?
-    @NSManaged public var result: String?
-    @NSManaged public var taskDate: NSDate?
-    @NSManaged public var title: String?
-
-}
+////Раскомментить в случае возвращение к стандартной (или не совсем?) модели
+//extension Task {
+//
+//    @nonobjc public class func fetchRequest() -> NSFetchRequest<Task> {
+//        return NSFetchRequest<Task>(entityName: "Task")
+//    }
+//
+//    @NSManaged public var category: NSObject?
+//    @NSManaged public var dateInfo: String?
+//    @NSManaged public var executor: String?
+//    @NSManaged public var project: NSObject?
+//    @NSManaged public var reminder: NSDate?
+//    @NSManaged public var result: String?
+//    @NSManaged public var taskDate: NSDate?
+//    @NSManaged public var title: String?
+//
+//}
