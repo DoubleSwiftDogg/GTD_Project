@@ -8,4 +8,6 @@
 
 import Foundation
 
-var taskList: [Task] = []
+var waitingTaskList: [Task] = []
+var actionsTaskList: [Task] = []
+var suspendedTaskList: [Task] = []

@@ -30,6 +30,9 @@
 		FA8D83F2217C82C1008C100A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA8D83F1217C82C1008C100A /* Assets.xcassets */; };
 		FA8D83F5217C82C1008C100A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA8D83F3217C82C1008C100A /* LaunchScreen.storyboard */; };
 		FA8D84202185DB72008C100A /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8D841F2185DB72008C100A /* Task.swift */; };
+		FAC784C02258CA1B00D6FB10 /* ActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC784BF2258CA1B00D6FB10 /* ActionsViewController.swift */; };
+		FAC784C32258D27800D6FB10 /* SuspendedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC784C22258D27800D6FB10 /* SuspendedViewController.swift */; };
+		FAC784C72258D80D00D6FB10 /* CoreDataFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC784C62258D80D00D6FB10 /* CoreDataFuncs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +63,9 @@
 		FA8D83F4217C82C1008C100A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA8D83F6217C82C1008C100A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA8D841F2185DB72008C100A /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		FAC784BF2258CA1B00D6FB10 /* ActionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsViewController.swift; sourceTree = "<group>"; };
+		FAC784C22258D27800D6FB10 /* SuspendedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuspendedViewController.swift; sourceTree = "<group>"; };
+		FAC784C62258D80D00D6FB10 /* CoreDataFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataFuncs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +82,7 @@
 		FA2ABDE5223D15BE00263995 /* (Suspended) */ = {
 			isa = PBXGroup;
 			children = (
+				FA8D841F2185DB72008C100A /* Task.swift */,
 				FA87768D21D4E1B300A956C5 /* Executor.xib */,
 				FA87769121D4E58800A956C5 /* FirstAction.xib */,
 				FA87769021D4E56900A956C5 /* Period.xib */,
@@ -87,6 +94,8 @@
 		FA2ABDE8223D3CD300263995 /* LISTS */ = {
 			isa = PBXGroup;
 			children = (
+				FAC784C12258D25C00D6FB10 /* SuspendedList */,
+				FAC784BE2258C99500D6FB10 /* ActionsList */,
 				FA2ABDE9223D3CE600263995 /* WaitingList */,
 			);
 			path = LISTS;
@@ -107,7 +116,6 @@
 				FA2FB8BE21D0F214005309DB /* Task+CoreDataClass.swift */,
 				FA2FB8BF21D0F214005309DB /* Task+CoreDataProperties.swift */,
 				FA2FB8B621D0E703005309DB /* taskList.swift */,
-				FA8D841F2185DB72008C100A /* Task.swift */,
 				FA68104C21D77A9B0070FCFA /* TaskCategory.swift */,
 				FA2FB8BA21D0E778005309DB /* Project.swift */,
 			);
@@ -148,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				FA8D83E7217C82BD008C100A /* AppDelegate.swift */,
+				FAC784C62258D80D00D6FB10 /* CoreDataFuncs.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -274,6 +283,22 @@
 			path = GTD_Project;
 			sourceTree = "<group>";
 		};
+		FAC784BE2258C99500D6FB10 /* ActionsList */ = {
+			isa = PBXGroup;
+			children = (
+				FAC784BF2258CA1B00D6FB10 /* ActionsViewController.swift */,
+			);
+			path = ActionsList;
+			sourceTree = "<group>";
+		};
+		FAC784C12258D25C00D6FB10 /* SuspendedList */ = {
+			isa = PBXGroup;
+			children = (
+				FAC784C22258D27800D6FB10 /* SuspendedViewController.swift */,
+			);
+			path = SuspendedList;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -348,14 +373,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAC784C72258D80D00D6FB10 /* CoreDataFuncs.swift in Sources */,
 				FA521CCB21E218E2004A1779 /* EnterList.swift in Sources */,
 				FA2FB8C521D104A3005309DB /* HandleViewController.swift in Sources */,
 				FA2FB8C321D10071005309DB /* Defaults.swift in Sources */,
 				FA68104D21D77A9B0070FCFA /* TaskCategory.swift in Sources */,
 				FA2FB8B721D0E703005309DB /* taskList.swift in Sources */,
 				FA68106F21D8C3BE0070FCFA /* DropDownTable.swift in Sources */,
+				FAC784C02258CA1B00D6FB10 /* ActionsViewController.swift in Sources */,
 				FA68107121DE29AF0070FCFA /* ResultView.swift in Sources */,
 				FA8D83E8217C82BD008C100A /* AppDelegate.swift in Sources */,
+				FAC784C32258D27800D6FB10 /* SuspendedViewController.swift in Sources */,
 				FA44C819223D3ED800D21A5C /* WaitingViewController.swift in Sources */,
 				FA2FB8C021D0F214005309DB /* Task+CoreDataClass.swift in Sources */,
 				FA8D83F0217C82BD008C100A /* GTD_Project.xcdatamodeld in Sources */,

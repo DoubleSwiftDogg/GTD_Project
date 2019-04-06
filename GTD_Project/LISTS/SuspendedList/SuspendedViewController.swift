@@ -1,8 +1,8 @@
 //
-//  WaitingViewController.swift
+//  SuspendedViewController.swift
 //  GTD_Project
 //
-//  Created by MacBook on 16/03/2019.
+//  Created by MacBook on 06/04/2019.
 //  Copyright © 2019 PB. All rights reserved.
 //
 
@@ -10,27 +10,21 @@ import UIKit
 import CoreData
 import Foundation
 
-class WaitingViewController: UIViewController {
+class SuspendedViewController: UIViewController {
+
     
     @IBOutlet weak var tableView: UITableView!
-
+    
     @IBAction func pressAddButton() {
         
-        performSegue(withIdentifier: "WaitingNewSegue", sender: nil)
+        performSegue(withIdentifier: "SuspendedNewSegue", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "WaitingNewSegue" {
+        if segue.identifier == "SuspendedNewSegue" {
             let targetVC = segue.destination as! HandleViewController
-            targetVC.categoryStringSegue = "Ожидание"
+            targetVC.categoryStringSegue = "Когда-нибудь/Может быть"
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.reloadData()
-
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,51 +32,35 @@ class WaitingViewController: UIViewController {
         let context = appDelegate.persistentContainer.viewContext
         
         let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
-        let waitPredicate: NSPredicate = NSPredicate(format: "category == 2")
+        let waitPredicate: NSPredicate = NSPredicate(format: "category == 1")
         fetchRequest.predicate = waitPredicate
         
         do {
-            waitingTaskList = try context.fetch(fetchRequest)
+            suspendedTaskList = try context.fetch(fetchRequest)
         } catch {
             print(error.localizedDescription)
         }
         tableView.reloadData()
     }
- 
     
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.reloadData()
     }
-    */
-
 }
 
-extension WaitingViewController: UITableViewDelegate {
-    
-}
+extension SuspendedViewController: UITableViewDelegate {}
 
-extension WaitingViewController: UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
+extension SuspendedViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return waitingTaskList.count
+        return suspendedTaskList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:WaitingViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! WaitingViewCell
-        cell.taskNameLabel.text = waitingTaskList[indexPath.row].title
-        cell.taskExecutorLabel.text = waitingTaskList[indexPath.row].executor
-        cell.taskTimeLabel.text = waitingTaskList[indexPath.row].dateInfo
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = suspendedTaskList[indexPath.row].title
+        cell.textLabel?.numberOfLines = 2
         
         return cell
     }
@@ -91,8 +69,8 @@ extension WaitingViewController: UITableViewDataSource {
         let delete = UIContextualAction(style: .normal, title: "Delete") { (action, view, CompletionHandler) in
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             let context = appDelegate.persistentContainer.viewContext
-            context.delete(waitingTaskList[indexPath.row])
-            waitingTaskList.remove(at: indexPath.row)
+            context.delete(suspendedTaskList[indexPath.row])
+            suspendedTaskList.remove(at: indexPath.row)
             saveCoreDataContext()
             tableView.deleteRows(at: [indexPath], with: .fade)
             CompletionHandler(true)
@@ -107,8 +85,8 @@ extension WaitingViewController: UITableViewDataSource {
         let ready = UIContextualAction(style: .normal, title: "Готово") { (action, view, CompletionHandler) in
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             let context = appDelegate.persistentContainer.viewContext
-            context.delete(waitingTaskList[indexPath.row])
-            waitingTaskList.remove(at: indexPath.row)
+            context.delete(suspendedTaskList[indexPath.row])
+            suspendedTaskList.remove(at: indexPath.row)
             saveCoreDataContext()
             tableView.deleteRows(at: [indexPath], with: .fade)
             CompletionHandler(true)
@@ -118,7 +96,4 @@ extension WaitingViewController: UITableViewDataSource {
         
         return UISwipeActionsConfiguration(actions: [ready])
     }
-    
-
 }
-

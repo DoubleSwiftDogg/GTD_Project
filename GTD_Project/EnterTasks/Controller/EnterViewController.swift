@@ -103,7 +103,7 @@ extension EnterViewController: UITableViewDataSource {
         let handle = UIContextualAction(style: .normal, title: "Обработка") { (action, view, CompletionHandler) in
             print("Handle")
             self.titleBuffer = enterList[indexPath.row]
-            self.performSegue(withIdentifier: "handleSegue", sender: self)
+            self.performSegue(withIdentifier: "handleSegue", sender: nil)
             CompletionHandler(true)
         }
         handle.image = #imageLiteral(resourceName: "Обработка")
@@ -118,23 +118,4 @@ extension EnterViewController: UITableViewDataSource {
         saveEnterList()
         tableView.reloadData()
     }
-    
-    
-    
 }
-
-
-
-
-/* func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
- return true
- } */
-
-/*
- func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
- <#code#>
- }
- 
- func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
- let delete = UITableViewRowAction(style: .default, title: <#T##String?#>, handler: <#T##(UITableViewRowAction, IndexPath) -> Void#>)
- } */

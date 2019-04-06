@@ -7,11 +7,11 @@
 //
 //
 
-////Раскомментить в случае возвращение к стандартной (или не совсем?) модели
-//import Foundation
-//import CoreData
-//
-//@objc(Task)
-//public class Task: NSManagedObject {
-//
-//}
+//Раскомментить в случае возвращение к стандартной (или не совсем?) модели
+import Foundation
+import CoreData
+
+@objc(Task)
+public class Task: NSManagedObject {
+
+}

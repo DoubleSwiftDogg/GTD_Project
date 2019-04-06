@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CoreData
+import Foundation
 
 class HandleViewController: UIViewController {
     
@@ -24,6 +26,7 @@ class HandleViewController: UIViewController {
     override func viewDidLoad() {
     
         super.viewDidLoad()
+        
         
         titleTextField.text = entryTitle
         
@@ -78,15 +81,74 @@ class HandleViewController: UIViewController {
         //Затем убедившись в этом, присвоить неким переменным значения полей
         //И только потом инициализировать нашу задачу
         
-        let readyData = checkForArguments(string: categoryStringSegue!)
-        let selectedCategory = TaskCategoryListDic[categoryStringSegue!]
+        let readyData: Bool
+        let selectedCategory: TaskCategory?
+        
+        if categoryStringSegue == nil {
+            readyData = false
+            selectedCategory = nil
+        } else {
+            readyData = checkForArguments(string: categoryStringSegue!)
+            selectedCategory = TaskCategoryListDic[categoryStringSegue!]
+        }
+        
+        //let selectedCategory = TaskCategoryListDic[categoryStringSegue!]
         
         if readyData == true  {
             if selectedCategory == .waiting {
                 createTask(title: titleTextField.text!, category: selectedCategory!, executor: waitingView.executorTextField.text!, result: waitingView.resultTextField.text!, dateInfo: waitingView.periodTextField.text!)
             }
+            if selectedCategory == .action {
+                createTask(title: titleTextField.text!, category: selectedCategory!)
+            }
+            if selectedCategory == .suspended {
+                createTask(title: titleTextField.text!, category: selectedCategory!)
+            }
             
+            if entryTitle != "" {
+                let item = enterList.index(of: entryTitle) as! Int
+                removeEnterItem(at: item)
+            }
+            
+        self.dismiss(animated: true, completion: nil)
+        } else {
+            let ac = UIAlertController(title: "Данные не указаны", message: nil, preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Я передумал", style: .destructive, handler: { (action) in
+                self.dismiss(animated: true, completion: nil)
+                ac.dismiss(animated: false, completion: nil)
+                
+            }))
+            ac.addAction(UIAlertAction(title: "Понятно", style: .cancel, handler: { (action) in
+                ac.dismiss(animated: true, completion: nil)
+            }))
+            self.present(ac, animated: true, completion: nil)
         }
+    }
+    
+    func createTask(title: String, category: TaskCategory, executor: String? = nil, result: String? = nil, reminder: NSDate? = nil, taskDate: NSDate? = nil, project: Project? = nil, dateInfo: String? = nil) {
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let entity = NSEntityDescription.entity(forEntityName: "Task", in: context)
+        let taskObject = NSManagedObject(entity: entity!, insertInto: context) as! Task
+        
+        taskObject.title = title
+        taskObject.category = category.rawValue as NSObject
+        taskObject.executor = executor
+        taskObject.result = result
+        taskObject.reminder = reminder
+        taskObject.taskDate = taskDate
+        //taskObject.project = project
+        taskObject.dateInfo = dateInfo
+        
+            do {
+                try context.save()
+                print("Saved!")
+            } catch {
+                print(error.localizedDescription)
+            }
+        self.dismiss(animated: true, completion: nil)
     }
     
     func handleChosenCategory(string: String) {
@@ -114,17 +176,24 @@ class HandleViewController: UIViewController {
         switch selectedCategory {
         case .waiting:
             if waitingView.executorTextField.text! == "" {
-                print("Отсутствует")
                 return false
             } else {
                 return true
             }
         case .suspended:
-            break
+            if titleTextField.text! == "" {
+                return false
+            } else {
+                return true
+            }
         case .calendar:
             break
         case .action:
-            break
+            if titleTextField.text! == "" {
+                return false
+            } else {
+                return true
+            }
         }
         return false
     }
