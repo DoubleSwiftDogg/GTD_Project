@@ -29,6 +29,7 @@ class HandleViewController: UIViewController {
         
         
         titleTextField.text = entryTitle
+        titleTextField.autocapitalizationType = .sentences
         
         dropView = DropDownTable(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
         dropView.delegate = self
@@ -45,6 +46,10 @@ class HandleViewController: UIViewController {
             handleChosenCategory(string: categoryStringSegue!)
             catButton.setTitle(categoryStringSegue, for: .normal)
         }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     //функция нажатия кнопки выбора категории

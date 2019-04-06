@@ -38,6 +38,10 @@ class WaitingView: UIView {
         waitingView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
         waitingView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         waitingView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        executorTextField.autocapitalizationType = .sentences
+        resultTextField.autocapitalizationType = .sentences
+        periodTextField.autocapitalizationType = .sentences
+        
         bringSubviewToFront(waitingView)
     }
 }
