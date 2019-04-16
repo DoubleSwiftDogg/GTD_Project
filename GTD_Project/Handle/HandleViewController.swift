@@ -18,7 +18,9 @@ class HandleViewController: UIViewController {
     var isOpen = false
     var entryTitle = ""
     var categoryStringSegue: String?
-    //var selectedCategory: TaskCategory
+    
+    var delegate: EnterTableDelegate?
+    
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var catButton: UIButton!
@@ -111,8 +113,9 @@ class HandleViewController: UIViewController {
             }
             
             if entryTitle != "" {
-                let item = enterList.index(of: entryTitle) as! Int
-                removeEnterItem(at: item)
+//                let item = enterList.firstIndex(of: entryTitle) as! Int
+//                removeEnterItem(at: item)
+                self.delegate?.reloadEnterTable()
             }
             
         self.dismiss(animated: true, completion: nil)
@@ -220,4 +223,8 @@ extension HandleViewController: dropDownProtocol {
         categoryStringSegue = string
         handleChosenCategory(string: categoryStringSegue!)
     }
+}
+
+protocol EnterTableDelegate {
+    func reloadEnterTable()
 }

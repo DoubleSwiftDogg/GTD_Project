@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EnterViewController: UIViewController {
+class EnterViewController: UIViewController, EnterTableDelegate {
 
     var titleBuffer: String = ""
     
@@ -47,12 +47,12 @@ class EnterViewController: UIViewController {
         tableView.allowsSelection = false
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "handleSegue" {
-            let handleTargetVC = segue.destination as! HandleViewController
-            handleTargetVC.entryTitle = self.titleBuffer
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "handleSegue" {
+//            let handleTargetVC = segue.destination as! HandleViewController
+//            handleTargetVC.entryTitle = self.titleBuffer
+//        }
+//    }
     
     
 }
@@ -103,7 +103,11 @@ extension EnterViewController: UITableViewDataSource {
         let handle = UIContextualAction(style: .normal, title: "Обработка") { (action, view, CompletionHandler) in
             print("Handle")
             self.titleBuffer = enterList[indexPath.row]
-            self.performSegue(withIdentifier: "handleSegue", sender: nil)
+            //self.performSegue(withIdentifier: "handleSegue", sender: nil)
+            let callingHandleVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HandleViewController") as! HandleViewController
+            callingHandleVC.delegate = self
+            callingHandleVC.entryTitle = self.titleBuffer
+            self.present(callingHandleVC, animated: true, completion: nil)
             CompletionHandler(true)
         }
         handle.image = #imageLiteral(resourceName: "Обработка")
@@ -117,5 +121,11 @@ extension EnterViewController: UITableViewDataSource {
         enterList.insert(from, at: to.row)
         saveEnterList()
         tableView.reloadData()
+    }
+    
+    func reloadEnterTable() {
+        let item = enterList.firstIndex(of: self.titleBuffer) as! Int
+        removeEnterItem(at: item)
+        self.tableView.reloadData()
     }
 }

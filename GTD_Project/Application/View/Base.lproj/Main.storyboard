@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="q0k-k9-V07">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="q0k-k9-V07">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -95,10 +95,10 @@
             </objects>
             <point key="canvasLocation" x="-746.39999999999998" y="120.98950524737631"/>
         </scene>
-        <!--Обработка-->
+        <!--HandleViewController-->
         <scene sceneID="4ga-Ab-7uI">
             <objects>
-                <viewController id="cOv-3E-wdv" customClass="HandleViewController" customModule="GTD_Project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HandleViewController" title="HandleViewController" id="cOv-3E-wdv" customClass="HandleViewController" customModule="GTD_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Prr-gx-D7J">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -309,23 +309,23 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m5f-95-QNd">
-                                                    <rect key="frame" x="20" y="0.0" width="205" height="80"/>
-                                                    <accessibility key="accessibilityConfiguration" label="name"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8Z-3O-2Ko">
-                                                    <rect key="frame" x="225" y="0.0" width="130" height="40"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8Z-3O-2Ko">
+                                                    <rect key="frame" x="225" y="0.0" width="135" height="40"/>
                                                     <accessibility key="accessibilityConfiguration" label="executor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqJ-kO-ezC">
-                                                    <rect key="frame" x="225" y="40" width="130" height="40"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqJ-kO-ezC">
+                                                    <rect key="frame" x="225" y="40" width="135" height="40"/>
                                                     <accessibility key="accessibilityConfiguration" label="time"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m5f-95-QNd">
+                                                    <rect key="frame" x="15" y="0.0" width="210" height="79.5"/>
+                                                    <accessibility key="accessibilityConfiguration" label="name"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -333,15 +333,15 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="m5f-95-QNd" firstAttribute="top" secondItem="92N-EC-Auf" secondAttribute="top" id="2vf-cP-sey"/>
+                                                <constraint firstItem="m5f-95-QNd" firstAttribute="width" secondItem="92N-EC-Auf" secondAttribute="width" multiplier="210:375" id="7wI-lC-EwJ"/>
                                                 <constraint firstItem="p8Z-3O-2Ko" firstAttribute="leading" secondItem="m5f-95-QNd" secondAttribute="trailing" id="HZn-En-X9s"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="m5f-95-QNd" secondAttribute="trailing" constant="20" symbolic="YES" id="Lx4-tg-WfO"/>
-                                                <constraint firstAttribute="trailing" secondItem="p8Z-3O-2Ko" secondAttribute="trailing" id="WUu-ow-o0i"/>
-                                                <constraint firstAttribute="trailing" secondItem="aqJ-kO-ezC" secondAttribute="trailing" id="Wrh-Py-fhC"/>
+                                                <constraint firstAttribute="trailing" secondItem="p8Z-3O-2Ko" secondAttribute="trailing" constant="15" id="WUu-ow-o0i"/>
+                                                <constraint firstAttribute="trailing" secondItem="aqJ-kO-ezC" secondAttribute="trailing" constant="15" id="Wrh-Py-fhC"/>
                                                 <constraint firstItem="p8Z-3O-2Ko" firstAttribute="top" secondItem="92N-EC-Auf" secondAttribute="top" id="Z6b-kd-BwC"/>
                                                 <constraint firstItem="p8Z-3O-2Ko" firstAttribute="height" secondItem="92N-EC-Auf" secondAttribute="height" multiplier="1:2" id="Zke-u3-Ec1"/>
                                                 <constraint firstItem="aqJ-kO-ezC" firstAttribute="top" secondItem="p8Z-3O-2Ko" secondAttribute="bottom" id="aEq-cj-U6U"/>
-                                                <constraint firstItem="m5f-95-QNd" firstAttribute="leading" secondItem="92N-EC-Auf" secondAttribute="leading" constant="16" id="j0D-DQ-AfF"/>
-                                                <constraint firstItem="m5f-95-QNd" firstAttribute="width" secondItem="92N-EC-Auf" secondAttribute="width" multiplier="6:10" id="jSd-1r-kKR"/>
+                                                <constraint firstItem="m5f-95-QNd" firstAttribute="leading" secondItem="92N-EC-Auf" secondAttribute="leading" constant="15" id="j0D-DQ-AfF"/>
                                                 <constraint firstAttribute="bottom" secondItem="aqJ-kO-ezC" secondAttribute="bottom" constant="-0.5" id="pwO-il-PtW"/>
                                                 <constraint firstItem="aqJ-kO-ezC" firstAttribute="leading" secondItem="m5f-95-QNd" secondAttribute="trailing" id="q99-0R-0A4"/>
                                                 <constraint firstItem="m5f-95-QNd" firstAttribute="height" secondItem="92N-EC-Auf" secondAttribute="height" id="rIE-IV-d1m"/>
@@ -412,6 +412,6 @@
         <image name="AddButton" width="73" height="76"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Kko-es-1TX"/>
+        <segue reference="ZgO-8H-TBn"/>
     </inferredMetricsTieBreakers>
 </document>
