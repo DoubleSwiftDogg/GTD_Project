@@ -28,15 +28,13 @@ class SuspendedViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
         
         let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
         let waitPredicate: NSPredicate = NSPredicate(format: "category == 1")
         fetchRequest.predicate = waitPredicate
         
         do {
-            suspendedTaskList = try context.fetch(fetchRequest)
+            suspendedTaskList = try CoreDataContext.sharedInstance.context.fetch(fetchRequest)
         } catch {
             print(error.localizedDescription)
         }
@@ -67,9 +65,7 @@ extension SuspendedViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .normal, title: "Delete") { (action, view, CompletionHandler) in
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let context = appDelegate.persistentContainer.viewContext
-            context.delete(suspendedTaskList[indexPath.row])
+            CoreDataContext.sharedInstance.context.delete(suspendedTaskList[indexPath.row])
             suspendedTaskList.remove(at: indexPath.row)
             saveCoreDataContext()
             tableView.deleteRows(at: [indexPath], with: .fade)
@@ -83,9 +79,7 @@ extension SuspendedViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let ready = UIContextualAction(style: .normal, title: "Готово") { (action, view, CompletionHandler) in
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let context = appDelegate.persistentContainer.viewContext
-            context.delete(suspendedTaskList[indexPath.row])
+            CoreDataContext.sharedInstance.context.delete(suspendedTaskList[indexPath.row])
             suspendedTaskList.remove(at: indexPath.row)
             saveCoreDataContext()
             tableView.deleteRows(at: [indexPath], with: .fade)

@@ -10,17 +10,11 @@
 import Foundation
 import CoreData
 
-//Раскомментить в случае возвращение к стандартной (или не совсем?) модели
 extension Task {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Task> {
         return NSFetchRequest<Task>(entityName: "Task")
     }
-    
-    @nonobjc public class func waitingfetchRequest() -> NSFetchRequest<Task> {
-        return NSFetchRequest<Task>(entityName: "Task")
-    }
-    
 
     @NSManaged public var category: NSObject?
     @NSManaged public var dateInfo: String?

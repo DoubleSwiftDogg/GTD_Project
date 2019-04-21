@@ -8,14 +8,12 @@
 
 import UIKit
 import CoreData
-import Foundation
 
 class ActionsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction func pressAddButton() {
-        
         performSegue(withIdentifier: "ActionsNewSegue", sender: nil)
     }
     
@@ -28,25 +26,21 @@ class ActionsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
         
         let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
         let waitPredicate: NSPredicate = NSPredicate(format: "category == 4")
         fetchRequest.predicate = waitPredicate
         
         do {
-            actionsTaskList = try context.fetch(fetchRequest)
+            actionsTaskList = try CoreDataContext.sharedInstance.context.fetch(fetchRequest)
         } catch {
             print(error.localizedDescription)
         }
         tableView.reloadData()
     }
-
 }
 
 extension ActionsViewController: UITableViewDelegate {}
@@ -67,9 +61,7 @@ extension ActionsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .normal, title: "Delete") { (action, view, CompletionHandler) in
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let context = appDelegate.persistentContainer.viewContext
-            context.delete(actionsTaskList[indexPath.row])
+            CoreDataContext.sharedInstance.context.delete(actionsTaskList[indexPath.row])
             actionsTaskList.remove(at: indexPath.row)
             saveCoreDataContext()
             tableView.deleteRows(at: [indexPath], with: .fade)
@@ -83,9 +75,7 @@ extension ActionsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let ready = UIContextualAction(style: .normal, title: "Готово") { (action, view, CompletionHandler) in
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let context = appDelegate.persistentContainer.viewContext
-            context.delete(actionsTaskList[indexPath.row])
+            CoreDataContext.sharedInstance.context.delete(actionsTaskList[indexPath.row])
             actionsTaskList.remove(at: indexPath.row)
             saveCoreDataContext()
             tableView.deleteRows(at: [indexPath], with: .fade)

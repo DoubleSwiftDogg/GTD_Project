@@ -10,12 +10,18 @@ import Foundation
 import CoreData
 import UIKit
 
+public class CoreDataContext {
+    
+    static let sharedInstance = CoreDataContext()
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+}
+
 public func saveCoreDataContext() {
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    let context = appDelegate.persistentContainer.viewContext
     
     do {
-        try context.save()
+        try CoreDataContext.sharedInstance.context.save()
         print("Saved!")
     } catch {
         print(error.localizedDescription)

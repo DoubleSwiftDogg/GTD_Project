@@ -104,7 +104,6 @@
 		FA2ABDE9223D3CE600263995 /* WaitingList */ = {
 			isa = PBXGroup;
 			children = (
-				FA1463E022464CAE00FED7B0 /* WaitingViewCell.swift */,
 				FA44C818223D3ED800D21A5C /* WaitingViewController.swift */,
 			);
 			path = WaitingList;
@@ -244,9 +243,10 @@
 		FA68107621DE47080070FCFA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FA68106E21D8C3BE0070FCFA /* DropDownTable.swift */,
 				FA521CCC21E37F50004A1779 /* WaitingView.xib */,
 				FA2473082206D59E00CD214C /* WaitingView.swift */,
+				FA1463E022464CAE00FED7B0 /* WaitingViewCell.swift */,
+				FA68106E21D8C3BE0070FCFA /* DropDownTable.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

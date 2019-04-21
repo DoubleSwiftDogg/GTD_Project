@@ -135,8 +135,7 @@ class HandleViewController: UIViewController {
     
     func createTask(title: String, category: TaskCategory, executor: String? = nil, result: String? = nil, reminder: NSDate? = nil, taskDate: NSDate? = nil, project: Project? = nil, dateInfo: String? = nil) {
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
+        let context = CoreDataContext.sharedInstance.context
         
         let entity = NSEntityDescription.entity(forEntityName: "Task", in: context)
         let taskObject = NSManagedObject(entity: entity!, insertInto: context) as! Task

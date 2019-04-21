@@ -8,14 +8,13 @@
 
 import UIKit
 import CoreData
-import Foundation
+
 
 class WaitingViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
 
     @IBAction func pressAddButton() {
-        
         performSegue(withIdentifier: "WaitingNewSegue", sender: nil)
     }
     
@@ -28,45 +27,25 @@ class WaitingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.reloadData()
-
-        // Do any additional setup after loading the view.
+        //tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
         
         let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
         let waitPredicate: NSPredicate = NSPredicate(format: "category == 2")
         fetchRequest.predicate = waitPredicate
         
         do {
-            waitingTaskList = try context.fetch(fetchRequest)
+            waitingTaskList = try CoreDataContext.sharedInstance.context.fetch(fetchRequest)
         } catch {
             print(error.localizedDescription)
         }
         tableView.reloadData()
     }
- 
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
-extension WaitingViewController: UITableViewDelegate {
-    
-}
+extension WaitingViewController: UITableViewDelegate {}
 
 extension WaitingViewController: UITableViewDataSource {
     
@@ -89,9 +68,7 @@ extension WaitingViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .normal, title: "Delete") { (action, view, CompletionHandler) in
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let context = appDelegate.persistentContainer.viewContext
-            context.delete(waitingTaskList[indexPath.row])
+            CoreDataContext.sharedInstance.context.delete(waitingTaskList[indexPath.row])
             waitingTaskList.remove(at: indexPath.row)
             saveCoreDataContext()
             tableView.deleteRows(at: [indexPath], with: .fade)
@@ -105,9 +82,7 @@ extension WaitingViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let ready = UIContextualAction(style: .normal, title: "Готово") { (action, view, CompletionHandler) in
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let context = appDelegate.persistentContainer.viewContext
-            context.delete(waitingTaskList[indexPath.row])
+            CoreDataContext.sharedInstance.context.delete(waitingTaskList[indexPath.row])
             waitingTaskList.remove(at: indexPath.row)
             saveCoreDataContext()
             tableView.deleteRows(at: [indexPath], with: .fade)
@@ -118,7 +93,6 @@ extension WaitingViewController: UITableViewDataSource {
         
         return UISwipeActionsConfiguration(actions: [ready])
     }
-    
 
 }
 
