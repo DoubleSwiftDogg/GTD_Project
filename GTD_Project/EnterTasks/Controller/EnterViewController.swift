@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EnterViewController: UIViewController, EnterTableDelegate {
+class EnterViewController: UIViewController {
 
     var titleBuffer: String = ""
     
@@ -44,7 +44,7 @@ class EnterViewController: UIViewController, EnterTableDelegate {
         super.viewDidLoad()
         loadEnterList()
         tableView.reloadData()
-        tableView.allowsSelection = false
+        //tableView.allowsSelection = false  - после теста на реальном телефоне-удалить!
     }
     
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -56,8 +56,6 @@ class EnterViewController: UIViewController, EnterTableDelegate {
     
     
 }
-
-extension EnterViewController: UITableViewDelegate {}
 
 extension EnterViewController: UITableViewDataSource {
     
@@ -78,6 +76,17 @@ extension EnterViewController: UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+        let from = enterList[fromIndexPath.row]
+        enterList.remove(at: fromIndexPath.row)
+        enterList.insert(from, at: to.row)
+        saveEnterList()
+        tableView.reloadData()
+    }
+}
+
+extension EnterViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .normal, title: "Delete") { (action, view, CompletionHandler) in
@@ -114,15 +123,9 @@ extension EnterViewController: UITableViewDataSource {
         handle.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.6196078431, blue: 0.01176470588, alpha: 1)
         return UISwipeActionsConfiguration(actions: [ready, handle])
     }
-    
-    func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-        let from = enterList[fromIndexPath.row]
-        enterList.remove(at: fromIndexPath.row)
-        enterList.insert(from, at: to.row)
-        saveEnterList()
-        tableView.reloadData()
-    }
-    
+}
+
+extension EnterViewController: EnterTableDelegate {
     func reloadEnterTable() {
         let item = enterList.firstIndex(of: self.titleBuffer) as! Int
         removeEnterItem(at: item)
