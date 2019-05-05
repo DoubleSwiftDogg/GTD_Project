@@ -9,7 +9,7 @@
 import UIKit
 
 protocol MonthViewDelegate {
-    func didChangeMonth(monthIndex: Int, year: Int, dest: String)
+    func didChangeMonth(monthIndex: Int, year: Int)
 }
 
 class MonthView: UIView {
@@ -31,28 +31,26 @@ class MonthView: UIView {
     }
     
     @IBAction func pressLeftButton() {
-        let dest = "Left"
         currentMonthIndex -= 1
         if currentMonthIndex < 0 {
             currentMonthIndex = 11
             currentYear -= 1
         }
-        changeMonthLabel(dest: dest)
+        changeMonthLabel()
     }
     
     @IBAction func pressRightButton() {
-        let dest = "Right"
         currentMonthIndex += 1
         if currentMonthIndex > 11 {
             currentMonthIndex = 0
             currentYear += 1
         }
-        changeMonthLabel(dest: dest)
+        changeMonthLabel()
     }
     
-    func changeMonthLabel(dest: String) {
+    func changeMonthLabel() {
         monthLabel?.text = "\(monthsList[currentMonthIndex]) \(currentYear)"
-        delegate?.didChangeMonth(monthIndex: currentMonthIndex, year: currentYear, dest: dest)
+        delegate?.didChangeMonth(monthIndex: currentMonthIndex, year: currentYear)
     }
     
     required init?(coder aDecoder: NSCoder) {
