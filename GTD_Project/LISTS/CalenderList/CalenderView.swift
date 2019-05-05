@@ -94,9 +94,13 @@ class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
         return day == 1 ? 8 : day
     }
     
-    func didChangeMonth(monthIndex: Int, year: Int) {
+    func didChangeMonth(monthIndex: Int, year: Int, dest: String) {
         
-        currentMonthIndex = monthIndex+1
+        if dest == "Right" {
+            currentMonthIndex = monthIndex+1
+        } else {
+            currentMonthIndex = monthIndex+1
+        }
         currentYear = year
         
         if monthIndex == 1 {
@@ -111,6 +115,7 @@ class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
         daysCollectionView?.reloadData()
         
     }
+
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
