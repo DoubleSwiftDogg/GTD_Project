@@ -127,8 +127,8 @@ extension EnterViewController: UITableViewDelegate {
 
 extension EnterViewController: EnterTableDelegate {
     func reloadEnterTable() {
-        let item = enterList.firstIndex(of: self.titleBuffer) as! Int
-        removeEnterItem(at: item)
+        let item = enterList.firstIndex(of: self.titleBuffer)
+        removeEnterItem(at: item!)
         self.tableView.reloadData()
     }
 }

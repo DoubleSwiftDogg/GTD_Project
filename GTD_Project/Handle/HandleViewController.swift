@@ -13,6 +13,7 @@ class HandleViewController: UIViewController {
     
     var dropView = DropDownTable()
     var waitingView = WaitingView()
+    //var calendarView = CalenderView()
     var height = NSLayoutConstraint()
     var isOpen = false
     var entryTitle = ""
@@ -171,6 +172,15 @@ class HandleViewController: UIViewController {
             waitingView.widthAnchor.constraint(equalTo: catButton.widthAnchor).isActive = true
             
             self.view.bringSubviewToFront(waitingView)
+        } else if selectedCategory == .calendar {
+            let calendarView = CalenderView(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
+            calendarView.translatesAutoresizingMaskIntoConstraints = false
+            self.view.addSubview(calendarView)
+            calendarView.topAnchor.constraint(equalTo: catButton.bottomAnchor).isActive = true
+            calendarView.centerXAnchor.constraint(equalTo: catButton.centerXAnchor).isActive = true
+            calendarView.widthAnchor.constraint(equalTo: catButton.widthAnchor).isActive = true
+            
+            self.view.bringSubviewToFront(calendarView)
         }
     }
     

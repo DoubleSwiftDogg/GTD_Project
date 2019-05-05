@@ -33,6 +33,15 @@
 		FAC784C02258CA1B00D6FB10 /* ActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC784BF2258CA1B00D6FB10 /* ActionsViewController.swift */; };
 		FAC784C32258D27800D6FB10 /* SuspendedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC784C22258D27800D6FB10 /* SuspendedViewController.swift */; };
 		FAC784C72258D80D00D6FB10 /* CoreDataFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC784C62258D80D00D6FB10 /* CoreDataFuncs.swift */; };
+		FAFBEA522279BA9A0037AD15 /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFBEA512279BA9A0037AD15 /* MonthView.swift */; };
+		FAFBEA572279C19B0037AD15 /* CalenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFBEA562279C19B0037AD15 /* CalenderView.swift */; };
+		FAFBEA58227EE9790037AD15 /* calenderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAFBEA482279AC160037AD15 /* calenderView.xib */; };
+		FAFBEA59227EE9B20037AD15 /* previous@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAFBEA4A2279B2B50037AD15 /* previous@2x.png */; };
+		FAFBEA5A227EE9BA0037AD15 /* previous@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAFBEA4B2279B2B50037AD15 /* previous@3x.png */; };
+		FAFBEA5B227EE9C00037AD15 /* next.png in Resources */ = {isa = PBXBuildFile; fileRef = FAFBEA4C2279B2B50037AD15 /* next.png */; };
+		FAFBEA5C227EE9C40037AD15 /* next@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAFBEA4D2279B2B50037AD15 /* next@2x.png */; };
+		FAFBEA5D227EE9C90037AD15 /* next@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAFBEA4E2279B2B50037AD15 /* next@3x.png */; };
+		FAFBEA5E227EE9CE0037AD15 /* previous.png in Resources */ = {isa = PBXBuildFile; fileRef = FAFBEA4F2279B2B50037AD15 /* previous.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +75,15 @@
 		FAC784BF2258CA1B00D6FB10 /* ActionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsViewController.swift; sourceTree = "<group>"; };
 		FAC784C22258D27800D6FB10 /* SuspendedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuspendedViewController.swift; sourceTree = "<group>"; };
 		FAC784C62258D80D00D6FB10 /* CoreDataFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataFuncs.swift; sourceTree = "<group>"; };
+		FAFBEA482279AC160037AD15 /* calenderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = calenderView.xib; sourceTree = "<group>"; };
+		FAFBEA4A2279B2B50037AD15 /* previous@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "previous@2x.png"; sourceTree = "<group>"; };
+		FAFBEA4B2279B2B50037AD15 /* previous@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "previous@3x.png"; sourceTree = "<group>"; };
+		FAFBEA4C2279B2B50037AD15 /* next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next.png; sourceTree = "<group>"; };
+		FAFBEA4D2279B2B50037AD15 /* next@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "next@2x.png"; sourceTree = "<group>"; };
+		FAFBEA4E2279B2B50037AD15 /* next@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "next@3x.png"; sourceTree = "<group>"; };
+		FAFBEA4F2279B2B50037AD15 /* previous.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = previous.png; sourceTree = "<group>"; };
+		FAFBEA512279BA9A0037AD15 /* MonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthView.swift; sourceTree = "<group>"; };
+		FAFBEA562279C19B0037AD15 /* CalenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +112,7 @@
 		FA2ABDE8223D3CD300263995 /* LISTS */ = {
 			isa = PBXGroup;
 			children = (
+				FAFBEA532279BD800037AD15 /* CalenderList */,
 				FAC784C12258D25C00D6FB10 /* SuspendedList */,
 				FAC784BE2258C99500D6FB10 /* ActionsList */,
 				FA2ABDE9223D3CE600263995 /* WaitingList */,
@@ -243,9 +262,7 @@
 		FA68107621DE47080070FCFA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FA521CCC21E37F50004A1779 /* WaitingView.xib */,
-				FA2473082206D59E00CD214C /* WaitingView.swift */,
-				FA1463E022464CAE00FED7B0 /* WaitingViewCell.swift */,
+				FAFBEA502279BA690037AD15 /* WaitingView */,
 				FA68106E21D8C3BE0070FCFA /* DropDownTable.swift */,
 			);
 			path = View;
@@ -276,6 +293,7 @@
 				FA68104721D774170070FCFA /* EnterTasks */,
 				FA68104B21D774700070FCFA /* Application */,
 				FA2ABDE5223D15BE00263995 /* (Suspended) */,
+				FAFBEA492279B2B50037AD15 /* Image */,
 				FA8D83F1217C82C1008C100A /* Assets.xcassets */,
 				FA8D83F6217C82C1008C100A /* Info.plist */,
 				FA8D83EE217C82BD008C100A /* GTD_Project.xcdatamodeld */,
@@ -297,6 +315,39 @@
 				FAC784C22258D27800D6FB10 /* SuspendedViewController.swift */,
 			);
 			path = SuspendedList;
+			sourceTree = "<group>";
+		};
+		FAFBEA492279B2B50037AD15 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				FAFBEA4A2279B2B50037AD15 /* previous@2x.png */,
+				FAFBEA4B2279B2B50037AD15 /* previous@3x.png */,
+				FAFBEA4C2279B2B50037AD15 /* next.png */,
+				FAFBEA4D2279B2B50037AD15 /* next@2x.png */,
+				FAFBEA4E2279B2B50037AD15 /* next@3x.png */,
+				FAFBEA4F2279B2B50037AD15 /* previous.png */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		FAFBEA502279BA690037AD15 /* WaitingView */ = {
+			isa = PBXGroup;
+			children = (
+				FA521CCC21E37F50004A1779 /* WaitingView.xib */,
+				FA2473082206D59E00CD214C /* WaitingView.swift */,
+				FA1463E022464CAE00FED7B0 /* WaitingViewCell.swift */,
+			);
+			path = WaitingView;
+			sourceTree = "<group>";
+		};
+		FAFBEA532279BD800037AD15 /* CalenderList */ = {
+			isa = PBXGroup;
+			children = (
+				FAFBEA482279AC160037AD15 /* calenderView.xib */,
+				FAFBEA512279BA9A0037AD15 /* MonthView.swift */,
+				FAFBEA562279C19B0037AD15 /* CalenderView.swift */,
+			);
+			path = CalenderList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -358,6 +409,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAFBEA5E227EE9CE0037AD15 /* previous.png in Resources */,
+				FAFBEA5D227EE9C90037AD15 /* next@3x.png in Resources */,
+				FAFBEA5C227EE9C40037AD15 /* next@2x.png in Resources */,
+				FAFBEA5B227EE9C00037AD15 /* next.png in Resources */,
+				FAFBEA5A227EE9BA0037AD15 /* previous@3x.png in Resources */,
+				FAFBEA59227EE9B20037AD15 /* previous@2x.png in Resources */,
+				FAFBEA58227EE9790037AD15 /* calenderView.xib in Resources */,
 				FA68107321DE41EA0070FCFA /* ResultView.xib in Resources */,
 				FA87768E21D4E1B300A956C5 /* Executor.xib in Resources */,
 				FA521CCD21E37F50004A1779 /* WaitingView.xib in Resources */,
@@ -380,6 +438,7 @@
 				FA2FB8C321D10071005309DB /* Defaults.swift in Sources */,
 				FA68104D21D77A9B0070FCFA /* TaskCategory.swift in Sources */,
 				FA2FB8B721D0E703005309DB /* taskList.swift in Sources */,
+				FAFBEA572279C19B0037AD15 /* CalenderView.swift in Sources */,
 				FA68106F21D8C3BE0070FCFA /* DropDownTable.swift in Sources */,
 				FAC784C02258CA1B00D6FB10 /* ActionsViewController.swift in Sources */,
 				FA68107121DE29AF0070FCFA /* ResultView.swift in Sources */,
@@ -387,6 +446,7 @@
 				FAC784C32258D27800D6FB10 /* SuspendedViewController.swift in Sources */,
 				FA44C819223D3ED800D21A5C /* WaitingViewController.swift in Sources */,
 				FA2FB8C021D0F214005309DB /* Task+CoreDataClass.swift in Sources */,
+				FAFBEA522279BA9A0037AD15 /* MonthView.swift in Sources */,
 				FA8D83F0217C82BD008C100A /* GTD_Project.xcdatamodeld in Sources */,
 				FA2FB8BB21D0E778005309DB /* Project.swift in Sources */,
 				FA1463E122464CAF00FED7B0 /* WaitingViewCell.swift in Sources */,
