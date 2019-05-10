@@ -19,7 +19,7 @@ class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
     var firstWeekDayOfMonth = 0
     
     @IBOutlet var calenderView: UIView!
-    @IBOutlet weak var monthView: MonthView?
+    @IBOutlet weak var monthView: MonthView!
     @IBOutlet weak var daysCollectionView: UICollectionView?
     
     override init(frame: CGRect) {
@@ -44,6 +44,8 @@ class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
         presentYear = currentYear
         monthView?.monthLabel?.text = "\(monthView?.monthsList[currentMonthIndex-1] ?? "Неопределено") \(currentYear)"
     
+        daysCollectionView?.delegate = self
+        daysCollectionView?.dataSource = self
         daysCollectionView?.register(dateCVCell.self, forCellWithReuseIdentifier: "Cell")
         daysCollectionView?.reloadData()
         
@@ -64,12 +66,12 @@ class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
             cell.isHidden=false
             cell.dateLbl.text="\(calcDate)"
             
-            if calcDate < todaysDate && currentYear == presentYear && currentMonthIndex == presentMonthIndex  {
-                cell.isUserInteractionEnabled=false
-                cell.dateLbl.textColor = UIColor.lightGray
-            } else {
-                cell.isUserInteractionEnabled=true
-            }
+//            if calcDate < todaysDate && currentYear == presentYear && currentMonthIndex == presentMonthIndex  {
+//                cell.isUserInteractionEnabled=false
+//                cell.dateLbl.textColor = UIColor.lightGray
+//            } else {
+//                cell.isUserInteractionEnabled=true
+//            }
             
         }
         return cell
@@ -115,6 +117,7 @@ class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
+        initializeView()
     }
     
     func commonInit() {
@@ -137,7 +140,7 @@ class dateCVCell: UICollectionViewCell {
         super.init(frame: frame)
         backgroundColor=UIColor.clear
         layer.cornerRadius = self.frame.height / 2
-        layer.masksToBounds=true
+        layer.masksToBounds = true
         
         setupViews()
     }

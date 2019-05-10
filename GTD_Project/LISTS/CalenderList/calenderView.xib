@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CalenderView" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CalenderView" customModule="GTD_Project" customModuleProvider="target">
             <connections>
                 <outlet property="calenderView" destination="iN0-l3-epB" id="jOG-HM-W7e"/>
                 <outlet property="daysCollectionView" destination="ume-Qi-h0e" id="seS-83-J23"/>
@@ -21,8 +21,8 @@
             <rect key="frame" x="0.0" y="0.0" width="291" height="255"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LTc-uo-o3E">
-                    <rect key="frame" x="0.0" y="21" width="291" height="255"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="00a-Jf-Yuv">
+                    <rect key="frame" x="0.0" y="0.0" width="291" height="255"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NyA-hQ-DBG" customClass="MonthView" customModule="GTD_Project">
                             <rect key="frame" x="0.0" y="0.0" width="291" height="25"/>
@@ -34,7 +34,7 @@
                                     </constraints>
                                     <state key="normal" title="Right" image="next.png"/>
                                     <connections>
-                                        <action selector="pressRightButton" destination="NyA-hQ-DBG" eventType="touchUpInside" id="bgi-nY-1h8"/>
+                                        <action selector="pressRightButton" destination="NyA-hQ-DBG" eventType="touchUpInside" id="APk-19-zLl"/>
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MonthLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIL-Jr-9uT">
@@ -51,7 +51,7 @@
                                     </constraints>
                                     <state key="normal" title="Left" image="previous.png"/>
                                     <connections>
-                                        <action selector="pressLeftButton" destination="NyA-hQ-DBG" eventType="touchUpInside" id="Ge7-m4-VO9"/>
+                                        <action selector="pressLeftButton" destination="NyA-hQ-DBG" eventType="touchUpInside" id="e4c-RD-QJT"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -141,16 +141,18 @@
                         </collectionView>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="IQr-87-Vfg" firstAttribute="width" secondItem="NyA-hQ-DBG" secondAttribute="width" id="T2k-hc-jeN"/>
-                        <constraint firstItem="ume-Qi-h0e" firstAttribute="width" secondItem="IQr-87-Vfg" secondAttribute="width" id="mdX-tl-LvP"/>
+                        <constraint firstItem="ume-Qi-h0e" firstAttribute="width" secondItem="IQr-87-Vfg" secondAttribute="width" id="313-bc-CqY"/>
+                        <constraint firstItem="NyA-hQ-DBG" firstAttribute="width" secondItem="00a-Jf-Yuv" secondAttribute="width" id="4Mi-cs-fed"/>
+                        <constraint firstItem="IQr-87-Vfg" firstAttribute="width" secondItem="NyA-hQ-DBG" secondAttribute="width" id="AFQ-AD-e1c"/>
                     </constraints>
                 </stackView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="LTc-uo-o3E" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="21" id="4vH-5f-DRF"/>
-                <constraint firstItem="LTc-uo-o3E" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="sPp-vJ-JUQ"/>
-                <constraint firstItem="LTc-uo-o3E" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="vzy-yj-oWr"/>
+                <constraint firstItem="00a-Jf-Yuv" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="7td-x5-dOR"/>
+                <constraint firstItem="00a-Jf-Yuv" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="TBa-PL-5es"/>
+                <constraint firstItem="00a-Jf-Yuv" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="mu5-Ef-u4a"/>
+                <constraint firstItem="00a-Jf-Yuv" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="qfF-76-tD4"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
