@@ -30,6 +30,7 @@
 		FA8D83F2217C82C1008C100A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA8D83F1217C82C1008C100A /* Assets.xcassets */; };
 		FA8D83F5217C82C1008C100A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA8D83F3217C82C1008C100A /* LaunchScreen.storyboard */; };
 		FA8D84202185DB72008C100A /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8D841F2185DB72008C100A /* Task.swift */; };
+		FA9C7AC02285AF71008CC91B /* CalenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9C7ABF2285AF71008CC91B /* CalenderViewController.swift */; };
 		FAC784C02258CA1B00D6FB10 /* ActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC784BF2258CA1B00D6FB10 /* ActionsViewController.swift */; };
 		FAC784C32258D27800D6FB10 /* SuspendedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC784C22258D27800D6FB10 /* SuspendedViewController.swift */; };
 		FAC784C72258D80D00D6FB10 /* CoreDataFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC784C62258D80D00D6FB10 /* CoreDataFuncs.swift */; };
@@ -72,6 +73,7 @@
 		FA8D83F4217C82C1008C100A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA8D83F6217C82C1008C100A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA8D841F2185DB72008C100A /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		FA9C7ABF2285AF71008CC91B /* CalenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderViewController.swift; sourceTree = "<group>"; };
 		FAC784BF2258CA1B00D6FB10 /* ActionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsViewController.swift; sourceTree = "<group>"; };
 		FAC784C22258D27800D6FB10 /* SuspendedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuspendedViewController.swift; sourceTree = "<group>"; };
 		FAC784C62258D80D00D6FB10 /* CoreDataFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataFuncs.swift; sourceTree = "<group>"; };
@@ -346,6 +348,7 @@
 				FAFBEA482279AC160037AD15 /* calenderView.xib */,
 				FAFBEA512279BA9A0037AD15 /* MonthView.swift */,
 				FAFBEA562279C19B0037AD15 /* CalenderView.swift */,
+				FA9C7ABF2285AF71008CC91B /* CalenderViewController.swift */,
 			);
 			path = CalenderList;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 				FA8D84202185DB72008C100A /* Task.swift in Sources */,
 				FA2FB8C121D0F214005309DB /* Task+CoreDataProperties.swift in Sources */,
 				FA2FB8BD21D0EEE7005309DB /* EnterViewController.swift in Sources */,
+				FA9C7AC02285AF71008CC91B /* CalenderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

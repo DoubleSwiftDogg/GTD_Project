@@ -114,6 +114,7 @@ class HandleViewController: UIViewController {
             }
             if selectedCategory == .calendar {
                 createTask(title: titleTextField.text!, category: selectedCategory!, taskDate: chosenDate as NSDate?)
+                //print(chosenDate)
             }
             
             if entryTitle != "" {

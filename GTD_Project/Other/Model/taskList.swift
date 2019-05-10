@@ -11,3 +11,4 @@ import Foundation
 var waitingTaskList: [Task] = []
 var actionsTaskList: [Task] = []
 var suspendedTaskList: [Task] = []
+var calenderTaskList: [Task] = []
