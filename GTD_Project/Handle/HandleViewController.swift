@@ -18,6 +18,7 @@ class HandleViewController: UIViewController {
     var isOpen = false
     var entryTitle = ""
     var categoryStringSegue: String?
+    var chosenDate: Date?
     
     var delegate: EnterTableDelegate?
     
@@ -111,6 +112,9 @@ class HandleViewController: UIViewController {
             if selectedCategory == .suspended {
                 createTask(title: titleTextField.text!, category: selectedCategory!)
             }
+            if selectedCategory == .calendar {
+                createTask(title: titleTextField.text!, category: selectedCategory!, taskDate: chosenDate as NSDate?)
+            }
             
             if entryTitle != "" {
 //                let item = enterList.firstIndex(of: entryTitle) as! Int
@@ -174,7 +178,7 @@ class HandleViewController: UIViewController {
             self.view.bringSubviewToFront(waitingView)
         } else if selectedCategory == .calendar {
             calendarView = CalenderView(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
-            //calendarView.delegate = self
+            calendarView.delegate = self
             calendarView.translatesAutoresizingMaskIntoConstraints = false
             self.view.addSubview(calendarView)
             calendarView.topAnchor.constraint(equalTo: catButton.bottomAnchor).isActive = true
@@ -204,7 +208,11 @@ class HandleViewController: UIViewController {
                 return true
             }
         case .calendar:
-            break
+            if titleTextField.text! == "" || chosenDate == nil {
+                return false
+            } else {
+                return true
+            }
         case .action:
             if titleTextField.text! == "" {
                 return false
@@ -212,7 +220,6 @@ class HandleViewController: UIViewController {
                 return true
             }
         }
-        return false
     }
 }
 
@@ -231,6 +238,12 @@ extension HandleViewController: dropDownProtocol {
         
         categoryStringSegue = string
         handleChosenCategory(string: categoryStringSegue!)
+    }
+}
+
+extension HandleViewController: CalenderDelegate {
+    func didTapDate(date: Date) {
+        chosenDate = date
     }
 }
 

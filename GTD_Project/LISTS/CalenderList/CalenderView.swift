@@ -18,6 +18,8 @@ class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
     var todaysDate = 0
     var firstWeekDayOfMonth = 0
     
+    var delegate: CalenderDelegate?
+    
     @IBOutlet var calenderView: UIView!
     @IBOutlet weak var monthView: MonthView!
     @IBOutlet weak var daysCollectionView: UICollectionView?
@@ -75,6 +77,25 @@ class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
             
         }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        let calcDate = indexPath.row-firstWeekDayOfMonth+3
+        cell?.backgroundColor = UIColor.orange
+        let lbl = cell?.subviews[1] as! UILabel
+        lbl.textColor=UIColor.white
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let chosenDate = formatter.date(from: "\(currentYear)-\(currentMonthIndex)-\(calcDate)")!
+        delegate?.didTapDate(date: chosenDate)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let cell=collectionView.cellForItem(at: indexPath)
+        cell?.backgroundColor = .clear
+        let lbl = cell?.subviews[1] as! UILabel
+        lbl.textColor = UIColor.darkGray
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -169,6 +190,10 @@ class dateCVCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
+
+protocol CalenderDelegate {
+    func didTapDate(date:Date)
 }
 
 extension Date {
