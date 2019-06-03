@@ -31,7 +31,6 @@ class MonthView: UIView {
     }
     
     @IBAction func pressLeftButton() {
-        print("button pressed")
         currentMonthIndex -= 1
         if currentMonthIndex < 0 {
             currentMonthIndex = 11

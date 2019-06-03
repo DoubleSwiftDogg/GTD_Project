@@ -22,7 +22,7 @@ class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
     
     @IBOutlet var calenderView: UIView!
     @IBOutlet weak var monthView: MonthView!
-    @IBOutlet weak var daysCollectionView: UICollectionView?
+    @IBOutlet weak var daysCollectionView: UICollectionView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -46,10 +46,12 @@ class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
         presentYear = currentYear
         monthView?.monthLabel?.text = "\(monthView?.monthsList[currentMonthIndex-1] ?? "Неопределено") \(currentYear)"
     
-        daysCollectionView?.delegate = self
-        daysCollectionView?.dataSource = self
-        daysCollectionView?.register(dateCVCell.self, forCellWithReuseIdentifier: "Cell")
-        daysCollectionView?.reloadData()
+        daysCollectionView.delegate = self
+        daysCollectionView.dataSource = self
+        daysCollectionView.register(dateCVCell.self, forCellWithReuseIdentifier: "Cell")
+        //daysCollectionView.reloadData()
+        daysCollectionView.allowsMultipleSelection = false
+        
         
         monthView?.delegate = self
     }
@@ -64,9 +66,9 @@ class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
         if indexPath.item <= firstWeekDayOfMonth - 3 {
             cell.isHidden = true
         } else {
-            let calcDate = indexPath.row-firstWeekDayOfMonth+3
+            let someCalcDate = indexPath.row-firstWeekDayOfMonth+3
             cell.isHidden=false
-            cell.dateLbl.text="\(calcDate)"
+            cell.dateLbl.text="\(someCalcDate)"
             
 //            if calcDate < todaysDate && currentYear == presentYear && currentMonthIndex == presentMonthIndex  {
 //                cell.isUserInteractionEnabled=false
@@ -84,7 +86,7 @@ class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
         let calcDate = indexPath.row-firstWeekDayOfMonth+3
         cell?.backgroundColor = UIColor.orange
         let lbl = cell?.subviews[1] as! UILabel
-        lbl.textColor=UIColor.white
+        //lbl.textColor=UIColor.white
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         let chosenDate = formatter.date(from: "\(currentYear)-\(currentMonthIndex)-\(calcDate)")!
@@ -93,6 +95,7 @@ class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let cell=collectionView.cellForItem(at: indexPath)
+        //let calcDate = indexPath.row-firstWeekDayOfMonth+3
         cell?.backgroundColor = .clear
         let lbl = cell?.subviews[1] as! UILabel
         lbl.textColor = UIColor.darkGray
@@ -131,7 +134,7 @@ class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
         }
         
         firstWeekDayOfMonth = getFirstWeekDay()
-        daysCollectionView?.reloadData()
+        daysCollectionView.reloadData()
         
     }
 
@@ -181,6 +184,7 @@ class dateCVCell: UICollectionViewCell {
         label.text = "00"
         label.textAlignment = .center
         label.font=UIFont.systemFont(ofSize: 16)
+        label.textColor = UIColor.darkGray
         label.translatesAutoresizingMaskIntoConstraints=false
         return label
     }()
