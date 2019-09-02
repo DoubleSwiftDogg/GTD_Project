@@ -98,12 +98,12 @@ extension CalenderViewController: CalenderDelegate {
         let NSChosenDate = date as NSDate
         
         let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
-        let waitPredicate = NSCompoundPredicate(type: .and, subpredicates: [
+        let calenderPredicate = NSCompoundPredicate(type: .and, subpredicates: [
             NSPredicate(format: "category = 3"),
             NSPredicate(format: "taskDate = %@", NSChosenDate)
             ])
         //let waitPredicate: NSPredicate = NSPredicate(format: "category = 3 AND taskDate = \(NSChosenDate))")
-        fetchRequest.predicate = waitPredicate
+        fetchRequest.predicate = calenderPredicate
         
         do {
             calenderTaskList = try CoreDataContext.sharedInstance.context.fetch(fetchRequest)
@@ -111,5 +111,34 @@ extension CalenderViewController: CalenderDelegate {
             print(error.localizedDescription)
         }
         tableView.reloadData()
+    }
+    
+    func checkForTasksInDay(date: Date) -> Bool {
+        let NSChosenDate = date as NSDate
+        
+        let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
+        let calenderPredicate = NSCompoundPredicate(type: .and, subpredicates: [
+            NSPredicate(format: "category = 3"),
+            NSPredicate(format: "taskDate = %@", NSChosenDate)
+            ])
+        //let waitPredicate: NSPredicate = NSPredicate(format: "category = 3 AND taskDate = \(NSChosenDate))")
+        fetchRequest.predicate = calenderPredicate
+        var calenderTaskList: [Task] = []
+        do {
+            calenderTaskList = try CoreDataContext.sharedInstance.context.fetch(fetchRequest)
+        } catch {
+            print(error.localizedDescription)
+        }
+        if calenderTaskList.count == 0 {
+            return false
+        } else {
+            return true
+        }
+    }
+}
+
+extension CalenderViewController: CalenderListDelegate {
+    func reloadCalenderList() {
+        self.calenderView.reloadCalenderList()
     }
 }

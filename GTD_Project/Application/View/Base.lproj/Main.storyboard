@@ -52,7 +52,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWj-6z-Z0X">
-                                <rect key="frame" x="320" y="608" width="16" height="22"/>
+                                <rect key="frame" x="263" y="554" width="73" height="76"/>
                                 <state key="normal" image="AddButton"/>
                                 <connections>
                                     <action selector="pressAddButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="IOw-1z-Vba"/>
@@ -207,7 +207,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VVx-et-TeO">
-                                <rect key="frame" x="340" y="578" width="16" height="22"/>
+                                <rect key="frame" x="283" y="524" width="73" height="76"/>
                                 <state key="normal" image="AddButton"/>
                                 <connections>
                                     <action selector="pressAddButton" destination="IIO-Nl-8B0" eventType="touchUpInside" id="IBb-Vt-BHG"/>
@@ -262,7 +262,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xCX-f9-2RW">
-                                <rect key="frame" x="340" y="578" width="16" height="22"/>
+                                <rect key="frame" x="283" y="524" width="73" height="76"/>
                                 <state key="normal" image="AddButton"/>
                                 <connections>
                                     <action selector="pressAddButton" destination="zYg-lM-Pfa" eventType="touchUpInside" id="fKQ-fy-hti"/>
@@ -338,7 +338,6 @@
                                 <state key="normal" image="AddButton"/>
                                 <connections>
                                     <action selector="pressAddButton" destination="0B8-zd-alZ" eventType="touchUpInside" id="9QZ-MX-Kfm"/>
-                                    <action selector="pressAddButton" destination="ded-s1-qLy" eventType="touchUpInside" id="pMi-bK-jAv"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -441,7 +440,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1If-IH-7QJ">
-                                <rect key="frame" x="340" y="578" width="16" height="22"/>
+                                <rect key="frame" x="283" y="524" width="73" height="76"/>
                                 <state key="normal" image="AddButton"/>
                                 <connections>
                                     <action selector="pressAddButton" destination="ded-s1-qLy" eventType="touchUpInside" id="NxR-5l-dSI"/>

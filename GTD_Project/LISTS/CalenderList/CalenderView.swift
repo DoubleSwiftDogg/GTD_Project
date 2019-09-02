@@ -63,12 +63,25 @@ class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! dateCVCell
         cell.backgroundColor = .clear
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        
         if indexPath.item <= firstWeekDayOfMonth - 3 {
             cell.isHidden = true
         } else {
             let someCalcDate = indexPath.row-firstWeekDayOfMonth+3
             cell.isHidden=false
-            cell.dateLbl.text="\(someCalcDate)"
+            
+            let chosenDate = formatter.date(from: "\(currentYear)-\(currentMonthIndex)-\(someCalcDate)")!
+            let isAnyDaskInDay: Bool = (delegate?.checkForTasksInDay(date: chosenDate))!
+            if isAnyDaskInDay == true {
+                cell.dateLbl.attributedText = NSMutableAttributedString(string: "\(someCalcDate)", attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
+            } else {
+                cell.dateLbl.text="\(someCalcDate)"
+            }
+            
+        
             
 //            if calcDate < todaysDate && currentYear == presentYear && currentMonthIndex == presentMonthIndex  {
 //                cell.isUserInteractionEnabled=false
@@ -78,6 +91,7 @@ class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
 //            }
             
         }
+        
         return cell
     }
     
@@ -85,7 +99,7 @@ class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
         let cell = collectionView.cellForItem(at: indexPath)
         let calcDate = indexPath.row-firstWeekDayOfMonth+3
         cell?.backgroundColor = UIColor.orange
-        let lbl = cell?.subviews[1] as! UILabel
+        //let lbl = cell?.subviews[1] as! UILabel
         //lbl.textColor=UIColor.white
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
@@ -137,6 +151,10 @@ class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
         daysCollectionView.reloadData()
         
     }
+    
+    func reloadCalenderList() {
+        daysCollectionView.reloadData()
+    }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -160,6 +178,9 @@ class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
 }
 
 class dateCVCell: UICollectionViewCell {
+    
+    var delegate: CalenderDelegate?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor=UIColor.clear
@@ -170,13 +191,13 @@ class dateCVCell: UICollectionViewCell {
     }
     
     func setupViews() {
+        
         addSubview(dateLbl)
         dateLbl.topAnchor.constraint(equalTo: topAnchor).isActive=true
         dateLbl.leftAnchor.constraint(equalTo: leftAnchor).isActive=true
         dateLbl.rightAnchor.constraint(equalTo: rightAnchor).isActive=true
         dateLbl.bottomAnchor.constraint(equalTo: bottomAnchor).isActive=true
-        
-        
+
     }
     
     let dateLbl: UILabel = {
@@ -186,6 +207,7 @@ class dateCVCell: UICollectionViewCell {
         label.font=UIFont.systemFont(ofSize: 16)
         label.textColor = UIColor.darkGray
         label.translatesAutoresizingMaskIntoConstraints=false
+        
         return label
     }()
     
@@ -198,6 +220,7 @@ class dateCVCell: UICollectionViewCell {
 
 protocol CalenderDelegate {
     func didTapDate(date:Date)
+    func checkForTasksInDay(date: Date) -> Bool
 }
 
 extension Date {

@@ -21,6 +21,7 @@ class HandleViewController: UIViewController {
     var chosenDate: Date?
     
     var delegate: EnterTableDelegate?
+    var calDelegate: CalenderListDelegate?
     
     
     @IBOutlet weak var titleTextField: UITextField!
@@ -114,6 +115,7 @@ class HandleViewController: UIViewController {
             }
             if selectedCategory == .calendar {
                 createTask(title: titleTextField.text!, category: selectedCategory!, taskDate: chosenDate as NSDate?)
+                self.calDelegate?.reloadCalenderList()
                 //print(chosenDate)
             }
             
@@ -243,6 +245,10 @@ extension HandleViewController: dropDownProtocol {
 }
 
 extension HandleViewController: CalenderDelegate {
+    func checkForTasksInDay(date: Date) -> Bool {
+        return false
+    }
+    
     func didTapDate(date: Date) {
         chosenDate = date
     }
@@ -250,4 +256,8 @@ extension HandleViewController: CalenderDelegate {
 
 protocol EnterTableDelegate {
     func reloadEnterTable()
+}
+
+protocol CalenderListDelegate {
+    func reloadCalenderList()
 }
