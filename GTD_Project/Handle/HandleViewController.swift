@@ -140,7 +140,7 @@ class HandleViewController: UIViewController {
         }
     }
     
-    func createTask(title: String, category: TaskCategory, executor: String? = nil, result: String? = nil, reminder: NSDate? = nil, taskDate: NSDate? = nil, project: Project? = nil, dateInfo: String? = nil) {
+    func createTask(title: String, category: TaskCategory, executor: String? = nil, result: String? = nil, reminder: NSDate? = nil, taskDate: NSDate? = nil, project: Project? = nil, dateInfo: String? = nil, isCompleted: Bool = false) {
         
         let context = CoreDataContext.sharedInstance.context
         
@@ -155,6 +155,7 @@ class HandleViewController: UIViewController {
         taskObject.taskDate = taskDate
         //taskObject.project = project
         taskObject.dateInfo = dateInfo
+        taskObject.isCompleted = false
         
             do {
                 try context.save()

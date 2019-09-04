@@ -52,13 +52,36 @@ extension CalenderViewController: UITableViewDelegate {}
 
 extension CalenderViewController: UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return calenderTaskList.count
+        if section == 0 {
+            return calenderTaskList.count
+        } else {
+            return calenderCompletedTaskList.count
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 1 {
+            return "Выполненные"
+        } else {
+            return nil
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = calenderTaskList[indexPath.row].title
+        
+        if indexPath.section == 0 {
+            cell.textLabel?.text = calenderTaskList[indexPath.row].title
+        }
+        
+        if indexPath.section == 1 {
+            cell.textLabel?.text = calenderCompletedTaskList[indexPath.row].title
+        }
         cell.textLabel?.numberOfLines = 2
         
         return cell
@@ -66,9 +89,15 @@ extension CalenderViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .normal, title: "Delete") { (action, view, CompletionHandler) in
-            CoreDataContext.sharedInstance.context.delete(calenderTaskList[indexPath.row])
-            calenderTaskList.remove(at: indexPath.row)
-            saveCoreDataContext()
+            if indexPath.section == 0 {
+                CoreDataContext.sharedInstance.context.delete(calenderTaskList[indexPath.row])
+                calenderTaskList.remove(at: indexPath.row)
+                saveCoreDataContext()
+            } else if indexPath.section == 1 {
+                CoreDataContext.sharedInstance.context.delete(calenderCompletedTaskList[indexPath.row])
+                calenderCompletedTaskList.remove(at: indexPath.row)
+                saveCoreDataContext()
+            }
             tableView.deleteRows(at: [indexPath], with: .fade)
             CompletionHandler(true)
         }
@@ -80,10 +109,20 @@ extension CalenderViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let ready = UIContextualAction(style: .normal, title: "Готово") { (action, view, CompletionHandler) in
-            CoreDataContext.sharedInstance.context.delete(suspendedTaskList[indexPath.row])
-            calenderTaskList.remove(at: indexPath.row)
+            if indexPath.section == 0 {
+                calenderTaskList[indexPath.row].isCompleted = true
+                calenderCompletedTaskList.append(calenderTaskList[indexPath.row])
+                calenderTaskList.remove(at: indexPath.row)
+                tableView.reloadData()
+                
+            } else if indexPath.section == 1 {
+                calenderCompletedTaskList[indexPath.row].isCompleted = false
+                calenderTaskList.append(calenderCompletedTaskList[indexPath.row])
+                calenderCompletedTaskList.remove(at: indexPath.row)
+                tableView.reloadData()
+            }
+            
             saveCoreDataContext()
-            tableView.deleteRows(at: [indexPath], with: .fade)
             CompletionHandler(true)
         }
         ready.image = #imageLiteral(resourceName: "Готово")

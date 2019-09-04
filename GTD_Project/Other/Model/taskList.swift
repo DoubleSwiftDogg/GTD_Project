@@ -9,6 +9,13 @@
 import Foundation
 
 var waitingTaskList: [Task] = []
+var waitingCompletedTaskList: [Task] = []
+
 var actionsTaskList: [Task] = []
+var actionsCompletedTaskList: [Task] = []
+
 var suspendedTaskList: [Task] = []
+var suspendedCompletedTaskList: [Task] = []
+
 var calenderTaskList: [Task] = []
+var calenderCompletedTaskList: [Task] = []

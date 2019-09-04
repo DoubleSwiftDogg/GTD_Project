@@ -50,27 +50,53 @@ extension WaitingViewController: UITableViewDelegate {}
 extension WaitingViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return waitingTaskList.count
+        if section == 0 {
+            return waitingTaskList.count
+        } else {
+            return waitingCompletedTaskList.count
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 1 {
+            return "Выполненные"
+        } else {
+            return nil
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:WaitingViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! WaitingViewCell
-        cell.taskNameLabel.text = waitingTaskList[indexPath.row].title
-        cell.taskExecutorLabel.text = waitingTaskList[indexPath.row].executor
-        cell.taskTimeLabel.text = waitingTaskList[indexPath.row].dateInfo
+        if indexPath.section == 0 {
+            cell.taskNameLabel.text = waitingTaskList[indexPath.row].title
+            cell.taskExecutorLabel.text = waitingTaskList[indexPath.row].executor
+            cell.taskTimeLabel.text = waitingTaskList[indexPath.row].dateInfo
+        }
+        
+        if indexPath.section == 1 {
+            cell.taskNameLabel.text = waitingCompletedTaskList[indexPath.row].title
+            cell.taskExecutorLabel.text = waitingCompletedTaskList[indexPath.row].executor
+            cell.taskTimeLabel.text = waitingCompletedTaskList[indexPath.row].dateInfo
+        }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .normal, title: "Delete") { (action, view, CompletionHandler) in
-            CoreDataContext.sharedInstance.context.delete(waitingTaskList[indexPath.row])
-            waitingTaskList.remove(at: indexPath.row)
-            saveCoreDataContext()
+            if indexPath.section == 0 {
+                CoreDataContext.sharedInstance.context.delete(waitingTaskList[indexPath.row])
+                waitingTaskList.remove(at: indexPath.row)
+                saveCoreDataContext()
+            } else if indexPath.section == 1 {
+                CoreDataContext.sharedInstance.context.delete(waitingCompletedTaskList[indexPath.row])
+                waitingCompletedTaskList.remove(at: indexPath.row)
+                saveCoreDataContext()
+            }
             tableView.deleteRows(at: [indexPath], with: .fade)
             CompletionHandler(true)
         }
@@ -82,10 +108,20 @@ extension WaitingViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let ready = UIContextualAction(style: .normal, title: "Готово") { (action, view, CompletionHandler) in
-            CoreDataContext.sharedInstance.context.delete(waitingTaskList[indexPath.row])
-            waitingTaskList.remove(at: indexPath.row)
+            if indexPath.section == 0 {
+                waitingTaskList[indexPath.row].isCompleted = true
+                waitingCompletedTaskList.append(waitingTaskList[indexPath.row])
+                waitingTaskList.remove(at: indexPath.row)
+                tableView.reloadData()
+                
+            } else if indexPath.section == 1 {
+                waitingCompletedTaskList[indexPath.row].isCompleted = false
+                waitingTaskList.append(waitingCompletedTaskList[indexPath.row])
+                waitingCompletedTaskList.remove(at: indexPath.row)
+                tableView.reloadData()
+            }
+            
             saveCoreDataContext()
-            tableView.deleteRows(at: [indexPath], with: .fade)
             CompletionHandler(true)
         }
         ready.image = #imageLiteral(resourceName: "Готово")
