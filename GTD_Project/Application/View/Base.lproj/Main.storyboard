@@ -52,7 +52,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWj-6z-Z0X">
-                                <rect key="frame" x="263" y="554" width="73" height="76"/>
+                                <rect key="frame" x="320" y="608" width="16" height="22"/>
                                 <state key="normal" image="AddButton"/>
                                 <connections>
                                     <action selector="pressAddButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="IOw-1z-Vba"/>
@@ -207,7 +207,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VVx-et-TeO">
-                                <rect key="frame" x="283" y="524" width="73" height="76"/>
+                                <rect key="frame" x="340" y="578" width="16" height="22"/>
                                 <state key="normal" image="AddButton"/>
                                 <connections>
                                     <action selector="pressAddButton" destination="IIO-Nl-8B0" eventType="touchUpInside" id="IBb-Vt-BHG"/>
@@ -262,7 +262,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xCX-f9-2RW">
-                                <rect key="frame" x="283" y="524" width="73" height="76"/>
+                                <rect key="frame" x="340" y="578" width="16" height="22"/>
                                 <state key="normal" image="AddButton"/>
                                 <connections>
                                     <action selector="pressAddButton" destination="zYg-lM-Pfa" eventType="touchUpInside" id="fKQ-fy-hti"/>
@@ -334,7 +334,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TMZ-dN-BG4">
-                                <rect key="frame" x="283" y="524" width="73" height="76"/>
+                                <rect key="frame" x="340" y="578" width="16" height="22"/>
                                 <state key="normal" image="AddButton"/>
                                 <connections>
                                     <action selector="pressAddButton" destination="0B8-zd-alZ" eventType="touchUpInside" id="9QZ-MX-Kfm"/>
@@ -440,7 +440,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1If-IH-7QJ">
-                                <rect key="frame" x="283" y="524" width="73" height="76"/>
+                                <rect key="frame" x="340" y="578" width="16" height="22"/>
                                 <state key="normal" image="AddButton"/>
                                 <connections>
                                     <action selector="pressAddButton" destination="ded-s1-qLy" eventType="touchUpInside" id="NxR-5l-dSI"/>
@@ -488,11 +488,65 @@
             </objects>
             <point key="canvasLocation" x="-39" y="121"/>
         </scene>
+        <!--Когда-нить-->
+        <scene sceneID="kjf-rB-Rq4">
+            <objects>
+                <viewController id="wjM-Z3-ayK" customClass="SuspendedViewController" customModule="GTD_Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="thb-i0-hVl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="91E-Kg-SbD">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="80" id="Yz5-Nl-azd">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Yz5-Nl-azd" id="Qh0-PG-fXO">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="wjM-Z3-ayK" id="GZ4-yM-vno"/>
+                                    <outlet property="delegate" destination="wjM-Z3-ayK" id="2mb-Aj-zhO"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MEt-PK-hk4">
+                                <rect key="frame" x="340" y="627" width="16" height="22"/>
+                                <state key="normal" image="AddButton"/>
+                                <connections>
+                                    <action selector="pressAddButton" destination="wjM-Z3-ayK" eventType="touchUpInside" id="Hve-sW-fQA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="91E-Kg-SbD" firstAttribute="top" secondItem="D8a-rP-ep2" secondAttribute="top" id="EcB-KS-JRA"/>
+                            <constraint firstItem="D8a-rP-ep2" firstAttribute="trailing" secondItem="91E-Kg-SbD" secondAttribute="trailing" id="Kb3-Nt-HOK"/>
+                            <constraint firstItem="D8a-rP-ep2" firstAttribute="bottom" secondItem="91E-Kg-SbD" secondAttribute="bottom" id="PTH-NB-WEc"/>
+                            <constraint firstItem="D8a-rP-ep2" firstAttribute="trailing" secondItem="MEt-PK-hk4" secondAttribute="trailing" constant="19" id="bhf-uX-Pgb"/>
+                            <constraint firstItem="D8a-rP-ep2" firstAttribute="bottom" secondItem="MEt-PK-hk4" secondAttribute="bottom" constant="18" id="dvn-NW-XQM"/>
+                            <constraint firstItem="91E-Kg-SbD" firstAttribute="leading" secondItem="D8a-rP-ep2" secondAttribute="leading" id="xv1-IP-jUz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="D8a-rP-ep2"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Когда-нить" id="WtH-H4-xWc"/>
+                    <connections>
+                        <outlet property="tableView" destination="91E-Kg-SbD" id="3fx-L6-CXE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="50W-a7-nvP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="949.60000000000002" y="966.56671664167925"/>
+        </scene>
     </scenes>
     <resources>
         <image name="AddButton" width="73" height="76"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Y7x-Um-aMH"/>
+        <segue reference="ZgO-8H-TBn"/>
     </inferredMetricsTieBreakers>
 </document>

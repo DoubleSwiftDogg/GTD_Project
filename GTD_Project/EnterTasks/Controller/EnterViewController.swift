@@ -60,18 +60,38 @@ class EnterViewController: UIViewController {
 extension EnterViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return enterList.count
+        if section == 0 {
+            return enterList.count
+        } else {
+            return enterCompletedList.count
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 1 {
+            return "Выполненные"
+        } else {
+            return nil
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = enterList[indexPath.row]
-        cell.textLabel?.textColor = .blue
+        
+        if indexPath.section == 0 {
+            cell.textLabel?.text = enterList[indexPath.row]
+            cell.textLabel?.textColor = .blue
+        }
+        
+        if indexPath.section == 1 {
+            cell.textLabel?.text = enterCompletedList[indexPath.row]
+            cell.textLabel?.textColor = .red
+        }
         cell.textLabel?.numberOfLines = 2
         
         return cell
@@ -88,9 +108,16 @@ extension EnterViewController: UITableViewDataSource {
 
 extension EnterViewController: UITableViewDelegate {
     
+    
+    
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .normal, title: "Delete") { (action, view, CompletionHandler) in
-            removeEnterItem(at: indexPath.row)
+            
+            if indexPath.section == 0 {
+                removeEnterItem(at: indexPath.row)
+            } else if indexPath.section == 1 {
+                removeEnterCompletedItem(at: indexPath.row)
+            }
             tableView.deleteRows(at: [indexPath], with: .fade)
             CompletionHandler(true)
         }
@@ -102,8 +129,19 @@ extension EnterViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let ready = UIContextualAction(style: .normal, title: "Готово") { (action, view, CompletionHandler) in
-            removeEnterItem(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            if indexPath.section == 0 {
+                addEnterCompletedItem(item: enterList[indexPath.row])
+                removeEnterItem(at: indexPath.row)
+                tableView.reloadData()
+
+            } else if indexPath.section == 1 {
+                addEnterItem(item: enterCompletedList[indexPath.row])
+                removeEnterCompletedItem(at: indexPath.row)
+                tableView.reloadData()
+                //tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+            
+            
             CompletionHandler(true)
         }
         ready.image = #imageLiteral(resourceName: "Готово")
@@ -121,7 +159,12 @@ extension EnterViewController: UITableViewDelegate {
         }
         handle.image = #imageLiteral(resourceName: "Обработка")
         handle.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.6196078431, blue: 0.01176470588, alpha: 1)
-        return UISwipeActionsConfiguration(actions: [ready, handle])
+        
+        if indexPath.section == 1 {
+            return UISwipeActionsConfiguration(actions: [ready])
+        } else {
+            return UISwipeActionsConfiguration(actions: [ready, handle])
+        }
     }
 }
 

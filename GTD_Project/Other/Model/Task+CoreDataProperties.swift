@@ -24,5 +24,6 @@ extension Task {
     @NSManaged public var result: String?
     @NSManaged public var taskDate: NSDate?
     @NSManaged public var title: String?
+    @NSManaged public var isCompleted: Bool
 
 }

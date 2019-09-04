@@ -12,8 +12,6 @@
 		FA2FB8B721D0E703005309DB /* taskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2FB8B621D0E703005309DB /* taskList.swift */; };
 		FA2FB8BB21D0E778005309DB /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2FB8BA21D0E778005309DB /* Project.swift */; };
 		FA2FB8BD21D0EEE7005309DB /* EnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2FB8BC21D0EEE7005309DB /* EnterViewController.swift */; };
-		FA2FB8C021D0F214005309DB /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2FB8BE21D0F214005309DB /* Task+CoreDataClass.swift */; };
-		FA2FB8C121D0F214005309DB /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2FB8BF21D0F214005309DB /* Task+CoreDataProperties.swift */; };
 		FA2FB8C321D10071005309DB /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2FB8C221D10071005309DB /* Defaults.swift */; };
 		FA2FB8C521D104A3005309DB /* HandleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2FB8C421D104A3005309DB /* HandleViewController.swift */; };
 		FA44C819223D3ED800D21A5C /* WaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA44C818223D3ED800D21A5C /* WaitingViewController.swift */; };
@@ -26,11 +24,13 @@
 		FA87768E21D4E1B300A956C5 /* Executor.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA87768D21D4E1B300A956C5 /* Executor.xib */; };
 		FA8D83E8217C82BD008C100A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8D83E7217C82BD008C100A /* AppDelegate.swift */; };
 		FA8D83ED217C82BD008C100A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA8D83EB217C82BD008C100A /* Main.storyboard */; };
-		FA8D83F0217C82BD008C100A /* GTD_Project.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA8D83EE217C82BD008C100A /* GTD_Project.xcdatamodeld */; };
 		FA8D83F2217C82C1008C100A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA8D83F1217C82C1008C100A /* Assets.xcassets */; };
 		FA8D83F5217C82C1008C100A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA8D83F3217C82C1008C100A /* LaunchScreen.storyboard */; };
 		FA8D84202185DB72008C100A /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8D841F2185DB72008C100A /* Task.swift */; };
 		FA9C7AC02285AF71008CC91B /* CalenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9C7ABF2285AF71008CC91B /* CalenderViewController.swift */; };
+		FAA72531231FD1BE009827F1 /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2FB8BE21D0F214005309DB /* Task+CoreDataClass.swift */; };
+		FAA72532231FD1BE009827F1 /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2FB8BF21D0F214005309DB /* Task+CoreDataProperties.swift */; };
+		FAA72535231FD3C5009827F1 /* GTD_Project.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA8D83EE217C82BD008C100A /* GTD_Project.xcdatamodeld */; };
 		FAC784C02258CA1B00D6FB10 /* ActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC784BF2258CA1B00D6FB10 /* ActionsViewController.swift */; };
 		FAC784C32258D27800D6FB10 /* SuspendedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC784C22258D27800D6FB10 /* SuspendedViewController.swift */; };
 		FAC784C72258D80D00D6FB10 /* CoreDataFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC784C62258D80D00D6FB10 /* CoreDataFuncs.swift */; };
@@ -435,6 +435,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAA72535231FD3C5009827F1 /* GTD_Project.xcdatamodeld in Sources */,
+				FAA72531231FD1BE009827F1 /* Task+CoreDataClass.swift in Sources */,
+				FAA72532231FD1BE009827F1 /* Task+CoreDataProperties.swift in Sources */,
 				FAC784C72258D80D00D6FB10 /* CoreDataFuncs.swift in Sources */,
 				FA521CCB21E218E2004A1779 /* EnterList.swift in Sources */,
 				FA2FB8C521D104A3005309DB /* HandleViewController.swift in Sources */,
@@ -448,14 +451,11 @@
 				FA8D83E8217C82BD008C100A /* AppDelegate.swift in Sources */,
 				FAC784C32258D27800D6FB10 /* SuspendedViewController.swift in Sources */,
 				FA44C819223D3ED800D21A5C /* WaitingViewController.swift in Sources */,
-				FA2FB8C021D0F214005309DB /* Task+CoreDataClass.swift in Sources */,
 				FAFBEA522279BA9A0037AD15 /* MonthView.swift in Sources */,
-				FA8D83F0217C82BD008C100A /* GTD_Project.xcdatamodeld in Sources */,
 				FA2FB8BB21D0E778005309DB /* Project.swift in Sources */,
 				FA1463E122464CAF00FED7B0 /* WaitingViewCell.swift in Sources */,
 				FA2473092206D59E00CD214C /* WaitingView.swift in Sources */,
 				FA8D84202185DB72008C100A /* Task.swift in Sources */,
-				FA2FB8C121D0F214005309DB /* Task+CoreDataProperties.swift in Sources */,
 				FA2FB8BD21D0EEE7005309DB /* EnterViewController.swift in Sources */,
 				FA9C7AC02285AF71008CC91B /* CalenderViewController.swift in Sources */,
 			);
