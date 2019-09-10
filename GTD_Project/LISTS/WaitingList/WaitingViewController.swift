@@ -12,6 +12,9 @@ import CoreData
 
 class WaitingViewController: UIViewController {
     
+    var isTaskEditing = false // пометка, для проверки необходимости передачи данных Таска на Обработку
+    var sendedTaskToEdit: TaskToEdit?
+    
     @IBOutlet weak var tableView: UITableView!
 
     @IBAction func pressAddButton() {
@@ -22,6 +25,11 @@ class WaitingViewController: UIViewController {
         if segue.identifier == "WaitingNewSegue" {
             let targetVC = segue.destination as! HandleViewController
             targetVC.categoryStringSegue = "Ожидание"
+            if isTaskEditing == true {
+                isTaskEditing = false
+                targetVC.incomingTaskToEdit = sendedTaskToEdit
+                sendedTaskToEdit = nil
+            }
         }
     }
     
@@ -45,7 +53,15 @@ class WaitingViewController: UIViewController {
     }
 }
 
-extension WaitingViewController: UITableViewDelegate {}
+extension WaitingViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        isTaskEditing = true
+        sendedTaskToEdit = TaskToEdit(task: waitingTaskList[indexPath.row], categoryString: "Ожидание")
+        performSegue(withIdentifier: "WaitingNewSegue", sender: nil)
+    }
+    
+}
 
 extension WaitingViewController: UITableViewDataSource {
     

@@ -11,6 +11,9 @@ import CoreData
 
 class ActionsViewController: UIViewController {
     
+    var isTaskEditing = false // пометка, для проверки необходимости передачи данных Таска на Обработку
+    var sendedTaskToEdit: TaskToEdit?
+    
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction func pressAddButton() {
@@ -21,6 +24,11 @@ class ActionsViewController: UIViewController {
         if segue.identifier == "ActionsNewSegue" {
             let targetVC = segue.destination as! HandleViewController
             targetVC.categoryStringSegue = "Действия"
+            if isTaskEditing == true {
+                isTaskEditing = false
+                targetVC.incomingTaskToEdit = sendedTaskToEdit
+                sendedTaskToEdit = nil
+            }
         }
     }
     
@@ -43,7 +51,14 @@ class ActionsViewController: UIViewController {
     }
 }
 
-extension ActionsViewController: UITableViewDelegate {}
+extension ActionsViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        isTaskEditing = true
+        sendedTaskToEdit = TaskToEdit(task: actionsTaskList[indexPath.row], categoryString: "Действия")
+        performSegue(withIdentifier: "ActionsNewSegue", sender: nil)
+    }
+}
 
 extension ActionsViewController: UITableViewDataSource {
     

@@ -12,6 +12,9 @@ import CoreData
 
 class CalenderViewController: UIViewController {
 
+    var isTaskEditing = false // пометка, для проверки необходимости передачи данных Таска на Обработку
+    var sendedTaskToEdit: TaskToEdit?
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var calenderView: CalenderView!
     
@@ -24,9 +27,15 @@ class CalenderViewController: UIViewController {
         if segue.identifier == "CalenderNewSegue" {
             let targetVC = segue.destination as! HandleViewController
             targetVC.categoryStringSegue = "Календарь"
+            if isTaskEditing == true {
+                isTaskEditing = false
+                targetVC.incomingTaskToEdit = sendedTaskToEdit
+                sendedTaskToEdit = nil
+            }
         }
     }
-    
+
+//  Здесь этот метод не используется, так как общего списка в Календаре нет
 //    override func viewWillAppear(_ animated: Bool) {
 //        
 //        let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
@@ -48,7 +57,14 @@ class CalenderViewController: UIViewController {
     }
 }
 
-extension CalenderViewController: UITableViewDelegate {}
+extension CalenderViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        isTaskEditing = true
+        sendedTaskToEdit = TaskToEdit(task: calenderTaskList[indexPath.row], categoryString: "Календарь")
+        performSegue(withIdentifier: "CalenderNewSegue", sender: nil)
+    }
+}
 
 extension CalenderViewController: UITableViewDataSource {
     

@@ -13,7 +13,7 @@ import Foundation
 class SuspendedViewController: UIViewController {
 
     var isTaskEditing = false // пометка, для проверки необходимости передачи данных Таска на Обработку
-    var sendedTaskToEdit: TaskToEdit? //Task?
+    var sendedTaskToEdit: TaskToEdit?
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -29,7 +29,7 @@ class SuspendedViewController: UIViewController {
             if isTaskEditing == true {
                 isTaskEditing = false
                 targetVC.incomingTaskToEdit = sendedTaskToEdit
-                sendedTaskToEdit = nil //пересмотреть при возвращении из обработки/редактирования, возможно эта переменная применится при обновлении списка после редактирования.
+                sendedTaskToEdit = nil
             }
             
         }

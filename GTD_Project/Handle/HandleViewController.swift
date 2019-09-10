@@ -153,9 +153,9 @@ class HandleViewController: UIViewController {
                 incomingTaskToEdit?.task?.category = selectedCategory!.rawValue as NSObject
             }
             if selectedCategory == .calendar {
-                createTask(title: titleTextField.text!, category: selectedCategory!, taskDate: chosenDate as NSDate?)
-                self.calDelegate?.reloadCalenderList() //тоже не факт, что работает, созможно под нож
-                //print(chosenDate) //тест работы, под удаление
+                incomingTaskToEdit?.task?.title = titleTextField.text!
+                incomingTaskToEdit?.task?.category = selectedCategory!.rawValue as NSObject
+                incomingTaskToEdit?.task?.taskDate = chosenDate as NSDate?
             }
             
             let context = CoreDataContext.sharedInstance.context
