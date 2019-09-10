@@ -12,6 +12,8 @@ import Foundation
 
 class SuspendedViewController: UIViewController {
 
+    var isTaskEditing = false // пометка, для проверки необходимости передачи данных Таска на Обработку
+    var sendedTaskToEdit: TaskToEdit? //Task?
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -24,6 +26,12 @@ class SuspendedViewController: UIViewController {
         if segue.identifier == "SuspendedNewSegue" {
             let targetVC = segue.destination as! HandleViewController
             targetVC.categoryStringSegue = "Когда-нибудь/Может быть"
+            if isTaskEditing == true {
+                isTaskEditing = false
+                targetVC.incomingTaskToEdit = sendedTaskToEdit
+                sendedTaskToEdit = nil //пересмотреть при возвращении из обработки/редактирования, возможно эта переменная применится при обновлении списка после редактирования.
+            }
+            
         }
     }
     
@@ -47,7 +55,15 @@ class SuspendedViewController: UIViewController {
     }
 }
 
-extension SuspendedViewController: UITableViewDelegate {}
+extension SuspendedViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        isTaskEditing = true
+        sendedTaskToEdit = TaskToEdit(task: suspendedTaskList[indexPath.row], categoryString: "Когда-нибудь/Может быть")
+        performSegue(withIdentifier: "SuspendedNewSegue", sender: nil)
+    }
+    
+}
 
 extension SuspendedViewController: UITableViewDataSource {
     

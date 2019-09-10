@@ -19,9 +19,11 @@ class HandleViewController: UIViewController {
     var entryTitle = ""
     var categoryStringSegue: String?
     var chosenDate: Date?
+    var isTaskEditing: Bool = false
     
     var delegate: EnterTableDelegate?
-    var calDelegate: CalenderListDelegate?
+    var calDelegate: CalenderListDelegate? // неуверен, что заработало, ведь по-прежнему нет отражения занятых дней в обработке
+    var incomingTaskToEdit: TaskToEdit?
     
     
     @IBOutlet weak var titleTextField: UITextField!
@@ -31,6 +33,12 @@ class HandleViewController: UIViewController {
     
         super.viewDidLoad()
         
+        //блок по редактированию существующей задачи
+        if incomingTaskToEdit != nil {
+            entryTitle = (incomingTaskToEdit?.task!.title)!
+            categoryStringSegue = (incomingTaskToEdit?.categoryString)!
+            isTaskEditing = true
+        }
         
         titleTextField.text = entryTitle
         titleTextField.autocapitalizationType = .sentences
@@ -103,7 +111,7 @@ class HandleViewController: UIViewController {
         
         //let selectedCategory = TaskCategoryListDic[categoryStringSegue!]
         
-        if readyData == true  {
+        if readyData == true && isTaskEditing == false  {
             if selectedCategory == .waiting {
                 createTask(title: titleTextField.text!, category: selectedCategory!, executor: waitingView.executorTextField.text!, result: waitingView.resultTextField.text!, dateInfo: waitingView.periodTextField.text!)
             }
@@ -115,8 +123,8 @@ class HandleViewController: UIViewController {
             }
             if selectedCategory == .calendar {
                 createTask(title: titleTextField.text!, category: selectedCategory!, taskDate: chosenDate as NSDate?)
-                self.calDelegate?.reloadCalenderList()
-                //print(chosenDate)
+                self.calDelegate?.reloadCalenderList() //тоже не факт, что работает, созможно под нож
+                //print(chosenDate) //тест работы, под удаление
             }
             
             if entryTitle != "" {
@@ -126,6 +134,39 @@ class HandleViewController: UIViewController {
             }
             
         self.dismiss(animated: true, completion: nil)
+            
+        } else if readyData == true && isTaskEditing == true {
+            if selectedCategory == .waiting {
+                incomingTaskToEdit?.task?.title = titleTextField.text!
+                incomingTaskToEdit?.task?.category = selectedCategory!.rawValue as NSObject
+                incomingTaskToEdit?.task?.executor = waitingView.executorTextField.text!
+                incomingTaskToEdit?.task?.result = waitingView.resultTextField.text!
+                incomingTaskToEdit?.task?.dateInfo = waitingView.periodTextField.text!
+                
+            }
+            if selectedCategory == .action {
+                incomingTaskToEdit?.task?.title = titleTextField.text!
+                incomingTaskToEdit?.task?.category = selectedCategory!.rawValue as NSObject
+            }
+            if selectedCategory == .suspended {
+                incomingTaskToEdit?.task?.title = titleTextField.text!
+                incomingTaskToEdit?.task?.category = selectedCategory!.rawValue as NSObject
+            }
+            if selectedCategory == .calendar {
+                createTask(title: titleTextField.text!, category: selectedCategory!, taskDate: chosenDate as NSDate?)
+                self.calDelegate?.reloadCalenderList() //тоже не факт, что работает, созможно под нож
+                //print(chosenDate) //тест работы, под удаление
+            }
+            
+            let context = CoreDataContext.sharedInstance.context
+            do {
+                try context.save()
+                print("Saved!")
+            } catch {
+                print(error.localizedDescription)
+            }
+            self.dismiss(animated: true, completion: nil)
+            
         } else {
             let ac = UIAlertController(title: "Данные не указаны", message: nil, preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "Я передумал", style: .destructive, handler: { (action) in
@@ -180,6 +221,14 @@ class HandleViewController: UIViewController {
             waitingView.widthAnchor.constraint(equalTo: catButton.widthAnchor).isActive = true
             
             self.view.bringSubviewToFront(waitingView)
+            
+            //блок по загрузке данных из incomingTaskToEdit
+            waitingView.executorTextField.text = incomingTaskToEdit?.task?.executor
+            waitingView.resultTextField.text = incomingTaskToEdit?.task?.result
+            waitingView.periodTextField.text = incomingTaskToEdit?.task?.dateInfo
+            
+            
+            
         } else if selectedCategory == .calendar {
             calendarView = CalenderView(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
             calendarView.delegate = self
@@ -190,6 +239,9 @@ class HandleViewController: UIViewController {
             calendarView.widthAnchor.constraint(equalTo: catButton.widthAnchor).isActive = true
             
             self.view.bringSubviewToFront(calendarView)
+            
+            //блок по загрузке данных из incomingTaskToEdit (да, его пока нет)
+            //есть дополнительные сложности с календарем, возможно придется делать дополнительный инициализатор calendarView или изменять существующий
         }
     }
     
@@ -200,7 +252,7 @@ class HandleViewController: UIViewController {
         
         switch selectedCategory {
         case .waiting:
-            if waitingView.executorTextField.text! == "" {
+            if titleTextField.text! == "" || waitingView.executorTextField.text! == "" {
                 return false
             } else {
                 return true

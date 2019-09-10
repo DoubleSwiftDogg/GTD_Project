@@ -19,3 +19,8 @@ var suspendedCompletedTaskList: [Task] = []
 
 var calenderTaskList: [Task] = []
 var calenderCompletedTaskList: [Task] = []
+
+struct TaskToEdit {
+    var task: Task?
+    var categoryString: String?
+}
