@@ -240,7 +240,14 @@ class HandleViewController: UIViewController {
             
             self.view.bringSubviewToFront(calendarView)
             
-            //блок по загрузке данных из incomingTaskToEdit (да, его пока нет)
+            //Большой блок по верной инициализации Календаря согласно дате Таска
+//            let editedTaskDate = incomingTaskToEdit?.task?.taskDate
+//            let taskDateComponents = NSCalendar.current.dateComponents([.month, .day, .year], from: editedTaskDate! as Date)
+//            calendarView.currentMonthIndex = taskDateComponents.month!
+//            calendarView.currentYear = taskDateComponents.year!
+//            calendarView.daysCollectionView.cellForItem(at: IndexPath(row: taskDateComponents.day! - 3 + calendarView.firstWeekDayOfMonth, section: 0))?.backgroundColor = UIColor.orange
+//            chosenDate = incomingTaskToEdit?.task?.taskDate as Date?
+           
             //есть дополнительные сложности с календарем, возможно придется делать дополнительный инициализатор calendarView или изменять существующий
         }
     }

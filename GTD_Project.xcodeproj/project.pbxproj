@@ -34,6 +34,8 @@
 		FAC784C02258CA1B00D6FB10 /* ActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC784BF2258CA1B00D6FB10 /* ActionsViewController.swift */; };
 		FAC784C32258D27800D6FB10 /* SuspendedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC784C22258D27800D6FB10 /* SuspendedViewController.swift */; };
 		FAC784C72258D80D00D6FB10 /* CoreDataFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC784C62258D80D00D6FB10 /* CoreDataFuncs.swift */; };
+		FACB119A2328ED5D003FFD1F /* ProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB11992328ED5D003FFD1F /* ProjectViewController.swift */; };
+		FACB119E2328F6B4003FFD1F /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACB119D2328F6B4003FFD1F /* ProjectView.swift */; };
 		FAFBEA522279BA9A0037AD15 /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFBEA512279BA9A0037AD15 /* MonthView.swift */; };
 		FAFBEA572279C19B0037AD15 /* CalenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFBEA562279C19B0037AD15 /* CalenderView.swift */; };
 		FAFBEA58227EE9790037AD15 /* calenderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAFBEA482279AC160037AD15 /* calenderView.xib */; };
@@ -77,6 +79,9 @@
 		FAC784BF2258CA1B00D6FB10 /* ActionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsViewController.swift; sourceTree = "<group>"; };
 		FAC784C22258D27800D6FB10 /* SuspendedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuspendedViewController.swift; sourceTree = "<group>"; };
 		FAC784C62258D80D00D6FB10 /* CoreDataFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataFuncs.swift; sourceTree = "<group>"; };
+		FACB11992328ED5D003FFD1F /* ProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewController.swift; sourceTree = "<group>"; };
+		FACB119C2328F4ED003FFD1F /* ProjectView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectView.xib; sourceTree = "<group>"; };
+		FACB119D2328F6B4003FFD1F /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
 		FAFBEA482279AC160037AD15 /* calenderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = calenderView.xib; sourceTree = "<group>"; };
 		FAFBEA4A2279B2B50037AD15 /* previous@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "previous@2x.png"; sourceTree = "<group>"; };
 		FAFBEA4B2279B2B50037AD15 /* previous@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "previous@3x.png"; sourceTree = "<group>"; };
@@ -114,6 +119,7 @@
 		FA2ABDE8223D3CD300263995 /* LISTS */ = {
 			isa = PBXGroup;
 			children = (
+				FACB11982328ED1B003FFD1F /* ProjectList */,
 				FAFBEA532279BD800037AD15 /* CalenderList */,
 				FAC784C12258D25C00D6FB10 /* SuspendedList */,
 				FAC784BE2258C99500D6FB10 /* ActionsList */,
@@ -264,6 +270,7 @@
 		FA68107621DE47080070FCFA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FACB119B2328F4E1003FFD1F /* ProjectView */,
 				FAFBEA502279BA690037AD15 /* WaitingView */,
 				FA68106E21D8C3BE0070FCFA /* DropDownTable.swift */,
 			);
@@ -317,6 +324,23 @@
 				FAC784C22258D27800D6FB10 /* SuspendedViewController.swift */,
 			);
 			path = SuspendedList;
+			sourceTree = "<group>";
+		};
+		FACB11982328ED1B003FFD1F /* ProjectList */ = {
+			isa = PBXGroup;
+			children = (
+				FACB11992328ED5D003FFD1F /* ProjectViewController.swift */,
+			);
+			path = ProjectList;
+			sourceTree = "<group>";
+		};
+		FACB119B2328F4E1003FFD1F /* ProjectView */ = {
+			isa = PBXGroup;
+			children = (
+				FACB119C2328F4ED003FFD1F /* ProjectView.xib */,
+				FACB119D2328F6B4003FFD1F /* ProjectView.swift */,
+			);
+			path = ProjectView;
 			sourceTree = "<group>";
 		};
 		FAFBEA492279B2B50037AD15 /* Image */ = {
@@ -452,9 +476,11 @@
 				FAC784C32258D27800D6FB10 /* SuspendedViewController.swift in Sources */,
 				FA44C819223D3ED800D21A5C /* WaitingViewController.swift in Sources */,
 				FAFBEA522279BA9A0037AD15 /* MonthView.swift in Sources */,
+				FACB119E2328F6B4003FFD1F /* ProjectView.swift in Sources */,
 				FA2FB8BB21D0E778005309DB /* Project.swift in Sources */,
 				FA1463E122464CAF00FED7B0 /* WaitingViewCell.swift in Sources */,
 				FA2473092206D59E00CD214C /* WaitingView.swift in Sources */,
+				FACB119A2328ED5D003FFD1F /* ProjectViewController.swift in Sources */,
 				FA8D84202185DB72008C100A /* Task.swift in Sources */,
 				FA2FB8BD21D0EEE7005309DB /* EnterViewController.swift in Sources */,
 				FA9C7AC02285AF71008CC91B /* CalenderViewController.swift in Sources */,
